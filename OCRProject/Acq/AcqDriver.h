@@ -26,7 +26,8 @@ private:
 	DWORD dwDeviceNum;
 	DWORD dwDeviceIndex;
 	VIDEO_SAMPLE_INFO * cpVideoInfo;
-	char * imageDataBuf;
+	BYTE * imageDataBuf;
+	uchar * bmpImageBits;
 	LONG imageDataBufLeng;
 
 	VIDEO_CAPTURE_INFO VideoCaptureInfo;

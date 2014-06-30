@@ -262,7 +262,18 @@ LONG AcqDriver::close()
 		killTimer(m_timerId);
 		m_timerId = 0;
 	}
- 
+	if (imageDataBuf != NULL )
+	{
+		delete[] imageDataBuf;
+		imageDataBuf = NULL;
+	}
+	if (bmpImageBits !=NULL)
+	{
+		delete[] bmpImageBits;
+		bmpImageBits = NULL;
+	}
+	
+  
 #ifdef  QDEBUGPRINT
 	qDebug("Enter close Func AcqDriver Class ");
 
@@ -307,20 +318,17 @@ void AcqDriver::timerEvent(QTimerEvent *event)
 
 void AcqDriver::captureSingleImage()
 {
- 
-	BYTE * lpBmpData;
-	LONG  plBufferSize;
-	
+ 	
 	// 50 ms 
 	LONG rtValue = AVerCaptureSingleImageToBuffer(hSDCaptureDevice,
-		NULL, &plBufferSize, NULL, 50);
-	lpBmpData = new BYTE[plBufferSize];
+		NULL, &imageDataBufLeng, NULL, 50);
+	imageDataBuf = new BYTE[imageDataBufLeng];
 
 	rtValue |= AVerCaptureSingleImageToBuffer(hSDCaptureDevice,
-		lpBmpData, &plBufferSize, NULL, 50);
+		imageDataBuf, &imageDataBufLeng, NULL, 50);
 
 	QImage bmpImage;
-	bmpImage = QImage::fromData((uchar *)lpBmpData, (int)(plBufferSize));
+	bmpImage = QImage::fromData((uchar *)imageDataBuf, (int)(imageDataBufLeng));
 
 	int imageWidth = bmpImage.width();
 	int imageHeight = bmpImage.height();
@@ -339,7 +347,6 @@ void AcqDriver::captureSingleImage()
 
 
 	}
-	delete[] lpBmpData;
-	delete[] bmpImageBits;
+
  
 }
