@@ -28,10 +28,10 @@ AcqDriver::AcqDriver(QObject *parent)
 
 void AcqDriver::createFalseData()
 {
-	if (count < 140000 )
-		count +=60 ;
+	if (count < 18 )
+		count += 1 ;
 	else
-		count = 160 ;
+		count = 0 ;
 
 
 	fileName = QString(".bmp");

@@ -31,8 +31,8 @@ LONG BllDataIdentity::isDataOutputNew(DataOutput &outputStruct)
 {
 
 	// 判断WIN数据是否变化
-
-	for (int i = 0; i < REALHORSENUM; i++)
+	outputStruct.changeStatus = 0 ;
+	for (int i = 0; i < outputStruct.horseNum; i++)
 	{
 		if (outputStruct.WIN[i] != priDataOutput.WIN[i])
 		{
@@ -41,7 +41,7 @@ LONG BllDataIdentity::isDataOutputNew(DataOutput &outputStruct)
 		}
 
 	}
-	for (int i = 0; i < REALHORSENUM; i++)
+	for (int i = 0; i < outputStruct.horseNum; i++)
 	{
 
 		if (outputStruct.PLA[i] != priDataOutput.PLA[i])
@@ -53,7 +53,7 @@ LONG BllDataIdentity::isDataOutputNew(DataOutput &outputStruct)
 	for (int i = 0; i < 7; i++)
 	{
 
-		for (int j = 0; j < REALHORSENUM; j++)
+		for (int j = 0; j < outputStruct.horseNum; j++)
 		{
 			if (i == j || i == (j + 1))
 				continue;
