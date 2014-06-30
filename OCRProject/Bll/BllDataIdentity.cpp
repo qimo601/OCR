@@ -103,22 +103,16 @@ void BllDataIdentity::start()
 			bmpFileName.prepend(QString::number(bmpCount));
 			QByteArray byteArray;
 			byteArray.append((char *)data, IMAGE_BUFF_LENGTH );
+
 			DataOutput emptyDataOutput;
 			
-		
-
-#ifdef CALLBACK_MODE
 			// 转换RGB888 到QIMAGE
 			for (int h = 0; h < IMAGE_HEIGHT; h++) {
 				// scanLine returns a ptr to the start of the data for that row 
 				memcpy(myImage.scanLine(h), (data + IMAGE_WIDTH * 3 * h),
 					IMAGE_WIDTH * 3);
 			}
-#endif
-#ifndef CALLBACK_MODE
-			myImage = QImage::fromData((uchar *)data, (int)(IMAGE_BUFF_LENGTH));
 
-#endif // !CALLBACK_MODE
 			emit readyReadBmp(emptyDataOutput, byteArray);
 			//QString curPath = QDir::currentPath();
 			QDir::setCurrent(QString("./acqImages/"));

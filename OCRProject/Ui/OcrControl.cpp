@@ -626,7 +626,7 @@ void OcrControl::updateData(DataOutput output, QByteArray array)
 		memcpy(buffer, array.data(), IMAGE_BUFF_LENGTH);
 		myImage = QImage(IMAGE_WIDTH, IMAGE_HEIGHT, QImage::Format_RGB888);
 
-#ifdef CALLBACK_MODE
+
 		// 转换RGB888 到QIMAGE
 		
 		for (int h = 0; h < IMAGE_HEIGHT; h++) {
@@ -634,11 +634,7 @@ void OcrControl::updateData(DataOutput output, QByteArray array)
 			memcpy(myImage.scanLine(h), (buffer + IMAGE_WIDTH * 3 * h),
 				IMAGE_WIDTH * 3);
 		}
-#endif
-#ifndef CALLBACK_MODE
-		myImage = QImage::fromData((uchar *)buffer, (int)(IMAGE_BUFF_LENGTH));
-	  
-#endif // !CALLBACK_MODE
+
 
 		myImage.save("acq2.bmp");
 

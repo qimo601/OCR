@@ -28,7 +28,7 @@ AcqDriver::AcqDriver(QObject *parent)
 
 void AcqDriver::createFalseData()
 {
-	if (count < 40 )
+	if (count < 9 )
 		count++;
 	else
 		count = 0;
@@ -318,6 +318,7 @@ void AcqDriver::timerEvent(QTimerEvent *event)
 
 void AcqDriver::captureSingleImage()
 {
+#ifndef	OFFLINE_DEBUG 
  	
 	// 50 ms 
 	LONG rtValue = AVerCaptureSingleImageToBuffer(hSDCaptureDevice,
@@ -349,6 +350,6 @@ void AcqDriver::captureSingleImage()
 
 
 	}
-
+#endif 
  
 }
