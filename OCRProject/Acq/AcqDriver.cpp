@@ -203,43 +203,9 @@ LONG AcqDriver::open()
 		}
 	}
 	else
-	{
-		while (stopCaputureFlag == TRUE)
-		{
-			BYTE * lpBmpData;
-			LONG  plBufferSize;
-			// 50 ms 
-			LONG rtValue = AVerCaptureSingleImageToBuffer(hSDCaptureDevice,
-				NULL,&plBufferSize, NULL, 50);
-			lpBmpData = new BYTE[ plBufferSize];
-
-			rtValue |= AVerCaptureSingleImageToBuffer(hSDCaptureDevice,
-				lpBmpData, &plBufferSize, NULL, 50);
-
-			QImage bmpImage;
-			bmpImage = QImage::fromData((uchar *)lpBmpData, (int)(plBufferSize));
-
-			int imageWidth = bmpImage.width();
-			int imageHeight = bmpImage.height();
-			int iamgeLength = imageWidth * imageHeight;
-			//睡眠调节 采集图片时间 1秒两次 
-			Sleep(500);
-
-			// 内存拷贝,添加至环形缓冲区
-			if (lpBmpData == NULL || iamgeLength > Global::S_CCycleBuffer->getBufSize())
-			{
-				qDebug("AcqDriver: Open wrong ! \n");
-			}
-			//if (Global::S_CCycleBuffer->getFreeSize() >= lLength )
-			{
-				Global::S_CCycleBuffer->write((char *)lpBmpData, iamgeLength);
-
-
-			}
-
-			
-
-		}
+	{// 500ms 启动定时器
+		m_timerId = startTimer(500);
+		
 		if (rtValue == CAP_EC_SUCCESS)
 			return CAP_EC_SUCCESS;
 		else
@@ -288,15 +254,14 @@ void AcqDriver::writeData(VIDEO_SAMPLE_INFO VideoInfo, BYTE *pbData, LONG lLengt
 LONG AcqDriver::close()
 {
 
-#ifdef OFFLINE_DEBUG
-	 
+ 
 	//关闭定时器
 	if (m_timerId != 0)
 	{
 		killTimer(m_timerId);
 		m_timerId = 0;
 	}
-#endif
+ 
 #ifdef  QDEBUGPRINT
 	qDebug("Enter close Func AcqDriver Class ");
 
@@ -325,13 +290,53 @@ LONG AcqDriver::ccbRead(char * buffer, int size)
 {
 	return 	Global::S_CCycleBuffer->read(buffer, size);
 }
-#ifdef OFFLINE_DEBUG
+
 void AcqDriver::timerEvent(QTimerEvent *event)
 {
-	//每个10ms更新一次
+	// 每个定时器周期更新一次
 	if (event->timerId() == m_timerId)
 	{
+#ifdef  OFFLINE_DEBUG
 		createFalseData();
+#endif //  OFFLINE_DEBUG
+	captureSingleImage();
+
 	}
 }
-#endif
+
+void AcqDriver::captureSingleImage()
+{
+ 
+	BYTE * lpBmpData;
+	LONG  plBufferSize;
+
+	// 50 ms 
+	LONG rtValue = AVerCaptureSingleImageToBuffer(hSDCaptureDevice,
+		NULL, &plBufferSize, NULL, 50);
+	lpBmpData = new BYTE[plBufferSize];
+
+	rtValue |= AVerCaptureSingleImageToBuffer(hSDCaptureDevice,
+		lpBmpData, &plBufferSize, NULL, 50);
+
+	QImage bmpImage;
+	bmpImage = QImage::fromData((uchar *)lpBmpData, (int)(plBufferSize));
+
+	int imageWidth = bmpImage.width();
+	int imageHeight = bmpImage.height();
+	int iamgeLength = imageWidth * imageHeight;
+	//睡眠调节 采集图片时间 1秒两次 
+	 
+	// 内存拷贝,添加至环形缓冲区
+	if (lpBmpData == NULL || iamgeLength > Global::S_CCycleBuffer->getBufSize())
+	{
+		qDebug("AcqDriver: captureSingleImage func wrong ! \n");
+	}
+	//if (Global::S_CCycleBuffer->getFreeSize() >= lLength )
+	{
+		Global::S_CCycleBuffer->write((char *)lpBmpData, iamgeLength);
+
+
+	}
+	delete[] lpBmpData;
+ 
+}

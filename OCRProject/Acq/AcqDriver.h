@@ -31,10 +31,12 @@ private:
 
 	VIDEO_CAPTURE_INFO VideoCaptureInfo;
 
+	void  captureSingleImage() ;
+
 #ifdef OFFLINE_DEBUG
 	void createFalseData();
 	//真正的定时器
-	int m_timerId;
+	
 	int count;
 	QString fileName;
 #endif
@@ -69,9 +71,10 @@ public:
 
  
 protected:
-#ifdef  OFFLINE_DEBUG
+	//定时器
+	int m_timerId;
 	virtual void timerEvent(QTimerEvent *event);
-#endif //  OFFLINE_DEBUG
+
 		
 
 
