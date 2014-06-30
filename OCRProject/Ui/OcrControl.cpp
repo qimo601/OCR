@@ -640,7 +640,8 @@ void OcrControl::updateData(DataOutput output, QByteArray array)
 		myImage.loadFromData(array);
 #endif // !CALLBACK_MODE
 
-		
+		myImage.save("acq2.bmp");
+
 		myImage = myImage.scaled(IMAGE_WIDTH *0.8 , IMAGE_HEIGHT *0.8 );
 		pixmap = pixmap.fromImage(myImage);
 		ui.imageLbl->setPixmap(pixmap);
