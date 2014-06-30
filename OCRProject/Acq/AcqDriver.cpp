@@ -11,12 +11,7 @@ AcqDriver::AcqDriver(QObject *parent)
 
 	cpVideoInfo = new VIDEO_SAMPLE_INFO;
 
-
-	//myCCyclieBuffer = new CCycleBuffer;
-
-	//设置环形缓冲区大小
-	// RGB888 分辨率 640*480  
-	//myCCyclieBuffer->setBufferSize(3 * 640 * 480 + 100) ;
+	stopCaputureFlag = FALSE;
 
 
 	pbData = new char[IMAGE_BUFF_LENGTH]();
@@ -104,7 +99,7 @@ LONG AcqDriver::init()
 	qDebug("Enter init Func AcqDriver Class ");
 
 #endif
-	if (AVerGetDeviceNum(&dwDeviceNum) != CAP_EC_SUCCESS)
+	if (rtValue = AVerGetDeviceNum(&dwDeviceNum) != CAP_EC_SUCCESS)
 	{
 #ifdef  QDEBUGPRINT
 		qDebug("Can't get the number of devices.");
@@ -117,11 +112,13 @@ LONG AcqDriver::init()
 		qDebug(" get the number of devices.%d ", dwDeviceNum);
 #endif
 	}
+	if (dwDeviceNum != 1)
+		return CAP_EC_ERROR_STATE;
 	for (DWORD dwDeviceIndex = 0; dwDeviceIndex < dwDeviceNum; dwDeviceIndex++)
 	{
 		QString myString;
 
-		if (AVerGetDeviceName(dwDeviceIndex, wcDeviceName) != CAP_EC_SUCCESS)
+		if (rtValue = AVerGetDeviceName(dwDeviceIndex, wcDeviceName) != CAP_EC_SUCCESS)
 		{
 #ifdef  QDEBUGPRINT
 			qDebug("can not get the name of device.");
@@ -207,23 +204,47 @@ LONG AcqDriver::open()
 	}
 	else
 	{
-		while (1)
+		while (stopCaputureFlag == TRUE)
 		{
 			BYTE * lpBmpData;
-			LONG * plBufferSize;
+			LONG  plBufferSize;
 			// 50 ms 
 			LONG rtValue = AVerCaptureSingleImageToBuffer(hSDCaptureDevice,
-				NULL, plBufferSize, NULL, 50);
-			lpBmpData = new BYTE[*plBufferSize];
+				NULL,&plBufferSize, NULL, 50);
+			lpBmpData = new BYTE[ plBufferSize];
 
-			rtValue = AVerCaptureSingleImageToBuffer(hSDCaptureDevice,
-				lpBmpData, plBufferSize, NULL, 50);
+			rtValue |= AVerCaptureSingleImageToBuffer(hSDCaptureDevice,
+				lpBmpData, &plBufferSize, NULL, 50);
 
 			QImage bmpImage;
-			bmpImage = QImage::fromData((uchar *)lpBmpData, (int)(*plBufferSize));
+			bmpImage = QImage::fromData((uchar *)lpBmpData, (int)(plBufferSize));
 
 			int imageWidth = bmpImage.width();
 			int imageHeight = bmpImage.height();
+			int iamgeLength = imageWidth * imageHeight;
+			//睡眠调节 采集图片时间 1秒两次 
+			Sleep(500);
+
+			// 内存拷贝,添加至环形缓冲区
+			if (lpBmpData == NULL || iamgeLength > Global::S_CCycleBuffer->getBufSize())
+			{
+				qDebug("AcqDriver: Open wrong ! \n");
+			}
+			//if (Global::S_CCycleBuffer->getFreeSize() >= lLength )
+			{
+				Global::S_CCycleBuffer->write((char *)lpBmpData, iamgeLength);
+
+
+			}
+
+			
+
+		}
+		if (rtValue == CAP_EC_SUCCESS)
+			return CAP_EC_SUCCESS;
+		else
+		{
+			return CAP_EC_ERROR_STATE;
 		}
 
 
@@ -246,33 +267,23 @@ void AcqDriver::writeData(VIDEO_SAMPLE_INFO VideoInfo, BYTE *pbData, LONG lLengt
 {
 
 	AcqDriver *pThis = (AcqDriver*)lUserData;
-
-	//pThis->imageDataBuf = new char[lLength];
+ 
 	// 内存拷贝,添加至环形缓冲区
+	if (pbData == NULL || lLength > Global::S_CCycleBuffer->getBufSize() )
+	{
+		qDebug("AcqDriver: writeData wrong ! \n");
+	}
 	//if (Global::S_CCycleBuffer->getFreeSize() >= lLength )
 	{
 		Global::S_CCycleBuffer->write((char *)pbData, lLength);
 
-
+ 
 	}
 
 
 }
 
-// 读取图像数据 RGB888
-// 输入源 数据 地址指针，返回 数据 和 size 大小 
-LONG AcqDriver::read(char * buffer, LONG  * size)
-{
-	/*int DataLength = 1000 * 1000;
-
-	*size = imageDataBufLeng;
-	if (memcpy(buffer, imageDataBuf, imageDataBufLeng))
-	return 1;
-	else*/
-		return 2;
-
-}
-
+ 
 //关闭设备 ，释放内存
 LONG AcqDriver::close()
 {
@@ -291,15 +302,15 @@ LONG AcqDriver::close()
 
 #endif
 	// 停止采集
-	AVerCaptureVideoSequenceStop(hSDCaptureDevice);
+	LONG rtValue = AVerCaptureVideoSequenceStop(hSDCaptureDevice);
 	// 关闭
-	LONG rtValue = AVerStopStreaming(hSDCaptureDevice);
+	rtValue |= AVerStopStreaming(hSDCaptureDevice);
 
 	if (rtValue == CAP_EC_SUCCESS)
-		return 1;
+		return CAP_EC_SUCCESS;
 	else
 	{
-		return 2;
+		return CAP_EC_ERROR_STATE ;
 	}
 }
 

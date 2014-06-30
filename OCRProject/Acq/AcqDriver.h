@@ -12,7 +12,7 @@
 #include "Include/CCycleBuffer.h"
 #include <QTimerEvent>
 //#define	OFFLINE_DEBUG 
-#define CALLBACK_MODE 1
+#define CALLBACK_MODE 0
 
 class AcqDriver :public QObject
 {
@@ -28,6 +28,7 @@ private:
 	VIDEO_SAMPLE_INFO * cpVideoInfo;
 	char * imageDataBuf;
 	LONG imageDataBufLeng;
+
 	VIDEO_CAPTURE_INFO VideoCaptureInfo;
 
 #ifdef OFFLINE_DEBUG
@@ -41,6 +42,8 @@ private:
 public:
 	AcqDriver(QObject *parent = 0);
 	~AcqDriver();
+	// 非callback模式下，停止单幅图片采集 标志位，停止while循环
+	BOOL stopCaputureFlag ;
 
 	// 初始化驱动
 	LONG init();

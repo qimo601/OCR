@@ -594,11 +594,15 @@ void OcrControl::on_stopAcqBtn_clicked()
 {
 	Global::acqStop = true;//停止模拟标示符
 	//emit stopAcq();//停止采集
+
+	//停止采集 while 循环
+ 
 	Global::myIAcq->unLoadDevice();
 	//Global::threadAcq->quit();
 
 	//emit stopIdentity();//停止识别
 	
+
 	Global::stopIdentityTag = true;//停止识别
 	threadDataIdentity->quit();
 

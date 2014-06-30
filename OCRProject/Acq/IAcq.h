@@ -16,7 +16,7 @@ class IAcq : public QObject
 public:
 	IAcq(QObject *parent = 0);
 	~IAcq();
-	AcqDriver  * myAcqDriver;
+	//AcqDriver  * myAcqDriver;
 public slots:
 	//初始化
 	LONG init();
@@ -26,7 +26,8 @@ public slots:
 	LONG unLoadDevice();
 
 private:
-	//AcqDriver  * myAcqDriver;
+	AcqDriver  * myAcqDriver;
+	 
 };
 
 #endif // IACQ_H

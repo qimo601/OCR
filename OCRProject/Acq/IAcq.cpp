@@ -21,18 +21,41 @@ IAcq::~IAcq()
 //初始化
 LONG IAcq :: init()
 {
-	return myAcqDriver->init();
+	LONG rtValue = myAcqDriver->init(); 
+	if (rtValue != CAP_EC_SUCCESS)
+	{
+		qDebug("IAcq: init driver failed error state \n");
+		return CAP_EC_ERROR_STATE;
+	}
+		
+	return rtValue;
 	
 
 }
 // 打开设备
 LONG IAcq :: read()
 {
-	return myAcqDriver->open();
+	myAcqDriver->stopCaputureFlag = TRUE ;
+	LONG rtValue = myAcqDriver->open();
+	if (rtValue != CAP_EC_SUCCESS)
+	{
+		qDebug("IAcq: read driver failed error state \n");
+		return CAP_EC_ERROR_STATE;
+	}
+
+	return rtValue;
 
 }
 // 卸载设备
 LONG IAcq :: unLoadDevice()
 {
-	return myAcqDriver->close();
+	myAcqDriver->stopCaputureFlag = FALSE;
+	LONG rtValue = myAcqDriver->close();
+
+	if (rtValue != CAP_EC_SUCCESS)
+	{
+		qDebug("IAcq: unLoadDevice driver failed error state \n");
+		return CAP_EC_ERROR_STATE;
+	}
+ 
 }
