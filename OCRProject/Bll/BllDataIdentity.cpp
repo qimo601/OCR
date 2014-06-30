@@ -133,7 +133,7 @@ void BllDataIdentity::start()
 #endif
 			//算法
 			DataIdentity dataIdentity;
-			bool emptyData = dataIdentity.read(data, length, height, width);
+			bool emptyData = dataIdentity.read(myImage.bits(), (IMAGE_BUFF_LENGTH-BMP_HEADER), height, width);
 			if (emptyData == true)								// empty == true, 无图像数据
 			{
 				//qDebug() << "empty image data" << endl;
