@@ -178,7 +178,7 @@ void BllDataIdentity::start()
 					isDataOutputNew( outputStruct);
 
 					QByteArray byteArray;
-					byteArray.append((char *)data, length);
+					byteArray.append((char *)data, IMAGE_BUFF_LENGTH);
 					//数据有改变才会发送信号
 					if (outputStruct.changeStatus>=0)
 					{
