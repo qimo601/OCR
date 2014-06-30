@@ -1,7 +1,9 @@
 #include "DataIdentity.h"
 #include <QDebug>
 #include<fstream>
-#include <../Acq/AcqDriver.h>
+ 
+
+//#define  CALLBACK_MODE
 using namespace std;
  
 
@@ -108,7 +110,7 @@ bool DataIdentity::read(uchar* data, int length, int height, int width)
 		dataLength = length;
 		imageHeight = height;
 		imageWidth = width;
-#ifdef OFFLINE_DEBUG
+#ifdef CALLBACK_MODE
 		 cvtColor(image, image, CV_RGB2BGR);
 #endif // OFFLINE_DEBUG
 
@@ -174,8 +176,8 @@ void DataIdentity::haveData()
 	Mat image_temp = image;
 	//	cvtColor(image, image_temp, CV_RGB2BGR);
 	//	cvtColor(image, image_temp, CV_BGR2RGB);
-	 	imshow("a", image_temp);
-	 	waitKey();
+	 //	imshow("a", image_temp);
+	// 	waitKey();
 	//	IplImage image_temp = mat_temp;
 	//	cvSaveImage("C:\\Users\\ZhouZY\\Desktop\\b.bmp",&image_temp);
 
