@@ -398,7 +398,7 @@ void BllRealTimeTrans::submitWINOrPLA(DataOutput& ouputStruct,QString type)
 			//*************还得发送数据：WIN(或PLA或QIN或QPL)*********//
 			QByteArray sendBlock;
 		
-			for (int i = 1; i <= REALHORSENUM; /* HORSENUMBER_1; */i++)
+			for (int i = 1; i <= ouputStruct.horseNum; /* HORSENUMBER_1; */i++)
 			{
 				//封装一个WIN
 				TagWPDataInfo WPData;
@@ -476,7 +476,8 @@ void BllRealTimeTrans::submitQINOrQPL(DataOutput& ouputStruct, QString type)
 {
 	TagProtocolMsg msg;
 	msg.MsgID = 8;
-	msg.nDataSize = (REALHORSENUM - 1)*REALHORSENUM  * sizeof(TagQDataInfo);// N个WPDATAINFO或QDATAINFO结构数据，按马编号
+	
+	msg.nDataSize = (ouputStruct.horseNum - 1)*ouputStruct.horseNum   * sizeof(TagQDataInfo);// N个WPDATAINFO或QDATAINFO结构数据，按马编号
 	if (type == "QIN")
 		strcpy(msg.Param, "QIN");//"WIN(或PLA或QIN或QPL)";
 	else if (type == "QPL")
@@ -508,9 +509,9 @@ void BllRealTimeTrans::submitQINOrQPL(DataOutput& ouputStruct, QString type)
 			QByteArray sendBlock;
 			//每一列
 
-			for (int i = 1; i <= REALHORSENUM; /* HORSENUMBER_1; */ i++)
+			for (int i = 1; i <= ouputStruct.horseNum; /* HORSENUMBER_1; */ i++)
 			{
-				for (int j = i + 1; j <= REALHORSENUM; /* HORSENUMBER_1; */ j++)
+				for (int j = i + 1; j <= ouputStruct.horseNum; /* HORSENUMBER_1; */ j++)
 				{
 					
 					//封装一个WIN
@@ -543,9 +544,9 @@ void BllRealTimeTrans::submitQINOrQPL(DataOutput& ouputStruct, QString type)
 
 
 			// 发送另外一半数据
-			for (int i = 1; i <= REALHORSENUM; /* HORSENUMBER_1; */  i++)
+			for (int i = 1; i <= ouputStruct.horseNum; /* HORSENUMBER_1; */ i++)
 			{
-				for (int j = i + 1;j<= REALHORSENUM; /* HORSENUMBER_1; */ j++)
+				for (int j = i + 1; j <= ouputStruct.horseNum; /* HORSENUMBER_1; */ j++)
 				{
 
 					//封装一个WIN
