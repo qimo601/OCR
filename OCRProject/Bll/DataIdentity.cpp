@@ -177,8 +177,8 @@ void DataIdentity::haveData()
 	Mat image_temp = image;
 	//	cvtColor(image, image_temp, CV_RGB2BGR);
 	//	cvtColor(image, image_temp, CV_BGR2RGB);
-	 	imshow("a", image_temp);
-	 	waitKey();
+	 //	imshow("a", image_temp);
+	// 	waitKey();
 	//	IplImage image_temp = mat_temp;
 	//	cvSaveImage("C:\\Users\\ZhouZY\\Desktop\\b.bmp",&image_temp);
 

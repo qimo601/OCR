@@ -28,8 +28,8 @@ AcqDriver::AcqDriver(QObject *parent)
 
 void AcqDriver::createFalseData()
 {
-	if (count < 8 )
-		count++;
+	if (count < 80000 )
+		count +=60 ;
 	else
 		count = 0;
 
@@ -37,7 +37,9 @@ void AcqDriver::createFalseData()
 	fileName = QString(".bmp");
 
 	fileName.prepend(QString::number(count, 10));
-	fileName.prepend(QString("./imageSamples/"));
+	//fileName.prepend(QString("./imageSamples/"));
+	fileName.prepend(QString("E://RDBS_Yp//OCRProject0627//OCRProject//OCRProject//acqImages//"));
+
 	localImage.load(fileName);
 
 	qDebug("\n It is %d bmp file \n", count);
