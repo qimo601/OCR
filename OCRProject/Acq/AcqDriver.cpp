@@ -351,6 +351,7 @@ void AcqDriver::captureSingleImage()
 
 	}
 	delete[] bmpDataBuf; 
+	delete[] bmpImageBits;
 #endif 
  
 }
