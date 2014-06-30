@@ -333,6 +333,7 @@ void AcqDriver::captureSingleImage()
 	int imageWidth = bmpImage.width();
 	int imageHeight = bmpImage.height();
 	int iamgeLength = imageWidth * imageHeight;
+	bmpImage.save("acq.bmp");
 	//睡眠调节 采集图片时间 1秒两次 
 	uchar * bmpImageBits;
 	bmpImageBits = bmpImage.bits();
