@@ -93,6 +93,7 @@ AcqDriver::~AcqDriver()
 		killTimer(m_timerId);
 	}
 #endif
+
 }
 
 LONG AcqDriver::init()
