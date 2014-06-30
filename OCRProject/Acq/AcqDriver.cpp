@@ -15,10 +15,10 @@ AcqDriver::AcqDriver(QObject *parent)
 
 
 	pbData = new char[IMAGE_BUFF_LENGTH]();
-
+	m_timerId = 0;//初始化
 #ifdef OFFLINE_DEBUG
 
-	m_timerId = 0;//初始化
+	
 	count = 0;
 #endif
 }
