@@ -1,7 +1,7 @@
 #include "DataIdentity.h"
 #include <QDebug>
 #include<fstream>
-
+#include <../Acq/AcqDriver.h>
 using namespace std;
  
 
@@ -108,7 +108,11 @@ bool DataIdentity::read(uchar* data, int length, int height, int width)
 		dataLength = length;
 		imageHeight = height;
 		imageWidth = width;
-		//		cvtColor(image, image, CV_RGB2BGR);
+#ifdef OFFLINE_DEBUG
+		 cvtColor(image, image, CV_RGB2BGR);
+#endif // OFFLINE_DEBUG
+
+		
 		return emptyFlag;
 	}
 }
