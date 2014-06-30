@@ -28,10 +28,10 @@ AcqDriver::AcqDriver(QObject *parent)
 
 void AcqDriver::createFalseData()
 {
-	if (count < 80000 )
+	if (count < 140000 )
 		count +=60 ;
 	else
-		count = 0;
+		count = 160 ;
 
 
 	fileName = QString(".bmp");
@@ -213,7 +213,7 @@ LONG AcqDriver::open()
 			NULL, &imageDataBufLeng, NULL, 50);
 		imageDataBuf = new BYTE[imageDataBufLeng];
 		// 500ms 启动定时器
-		m_timerId = startTimer(500);
+		m_timerId = startTimer(1000);
 
 		if (rtValue == CAP_EC_SUCCESS)
 			return CAP_EC_SUCCESS;
