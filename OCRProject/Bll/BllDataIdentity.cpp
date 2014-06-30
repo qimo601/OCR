@@ -88,9 +88,9 @@ void BllDataIdentity::start()
 			Global::S_CCycleBuffer->read((char*)data, IMAGE_BUFF_LENGTH);
 
 #ifdef WRITE_IMAGES_BEFORE_IDENTITY
-			//Mat mat_temp(IMAGE_HEIGHT, IMAGE_WIDTH, CV_8UC3, data);
-			//imshow("a",mat_temp);
-			//waitKey(1000);
+			Mat mat_temp(IMAGE_HEIGHT, IMAGE_WIDTH, CV_8UC3, data);
+			imshow("a",mat_temp);
+			waitKey(1000);
 
 			bmpCount++;
 			QPixmap pixmap;
