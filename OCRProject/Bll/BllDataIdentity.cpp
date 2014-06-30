@@ -100,7 +100,7 @@ void BllDataIdentity::start()
 
 			QString bmpFileName;
 			bmpFileName = QString(".bmp");
-			bmpFileName.prepend(QString::number(bmpCount));
+			bmpFileName.prepend(QString::number(bmpCount%100));
 			QByteArray byteArray;
 			byteArray.append((char *)data, IMAGE_BUFF_LENGTH );
 
