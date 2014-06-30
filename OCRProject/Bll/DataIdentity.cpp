@@ -113,6 +113,7 @@ bool DataIdentity::read(uchar* data, int length, int height, int width)
 #ifndef CALLBACK_MODE
 		 cvtColor(image, image, CV_RGB2BGR);
 #endif // OFFLINE_DEBUG
+ 
 
 		
 		return emptyFlag;
