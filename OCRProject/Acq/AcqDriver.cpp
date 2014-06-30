@@ -333,19 +333,19 @@ void AcqDriver::captureSingleImage()
 	bmpImage = bmpImage.convertToFormat(QImage::Format_RGB888);
 	int imageWidth = bmpImage.width();
 	int imageHeight = bmpImage.height();
-	int iamgeLength = imageWidth * imageHeight * 3 ;
+	int imageLength = imageWidth * imageHeight * 3 ;
 	bmpImage.save("acq.bmp");
 	//睡眠调节 采集图片时间 1秒两次 
 	uchar * bmpImageBits;
 	bmpImageBits = bmpImage.bits();
 	// 内存拷贝,添加至环形缓冲区
-	if (bmpImageBits == NULL || iamgeLength > Global::S_CCycleBuffer->getBufSize())
+	if (bmpImageBits == NULL || imageLength > Global::S_CCycleBuffer->getBufSize())
 	{
 		qDebug("AcqDriver: captureSingleImage func wrong ! \n");
 	}
 	//if (Global::S_CCycleBuffer->getFreeSize() >= lLength )
 	{
-		Global::S_CCycleBuffer->write((char *)bmpImageBits, iamgeLength);
+		Global::S_CCycleBuffer->write((char *)bmpImageBits, imageLength);
 
 
 	}
