@@ -75,17 +75,17 @@ void BllDataIdentity::start()
 	Global::stopIdentityTag = false;//开始跑
 	int width = IMAGE_WIDTH;
 	int height = IMAGE_HEIGHT;
-	int length = width * height * 3;
-	uchar* data = new uchar[length];
+	 
+	uchar* data = new uchar[IMAGE_BUFF_LENGTH];
 	//注册该对象为元对象可识别系统，元对象将会将该参数保存起来，供队列连接调用。特别针对多线程
 	qRegisterMetaType<DataOutput>("DataOutput");
 
 	while (!Global::stopIdentityTag)
 	{
 	 		
-		if (Global::S_CCycleBuffer->getUsedSize() >= length)
+		if (Global::S_CCycleBuffer->getUsedSize() >= IMAGE_BUFF_LENGTH)
 		{
-			Global::S_CCycleBuffer->read((char*)data, length);	
+			Global::S_CCycleBuffer->read((char*)data, IMAGE_BUFF_LENGTH);
 
 #ifdef WRITE_IMAGES_BEFORE_IDENTITY
 			//Mat mat_temp(IMAGE_HEIGHT, IMAGE_WIDTH, CV_8UC3, data);
@@ -102,7 +102,7 @@ void BllDataIdentity::start()
 			bmpFileName = QString(".bmp");
 			bmpFileName.prepend(QString::number(bmpCount));
 			QByteArray byteArray;
-			byteArray.append((char *)data, length);
+			byteArray.append((char *)data, IMAGE_BUFF_LENGTH );
 			DataOutput emptyDataOutput;
 			
 			emit readyReadBmp(emptyDataOutput, byteArray);
@@ -116,7 +116,7 @@ void BllDataIdentity::start()
 			}
 #endif
 #ifndef CALLBACK_MODE
-			myImage = QImage::fromData((uchar *)data, (int)(length));
+			myImage = QImage::fromData((uchar *)data, (int)(IMAGE_BUFF_LENGTH));
 
 #endif // !CALLBACK_MODE
 			 
