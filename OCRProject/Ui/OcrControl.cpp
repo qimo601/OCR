@@ -637,7 +637,7 @@ void OcrControl::updateData(DataOutput output, QByteArray array)
 #endif
 #ifndef CALLBACK_MODE
 
-		myImage.FromData(array.bits(),array.size();
+		myImage.FromData(buffer, IMAGE_BUFF_LENGTH);
 #endif // !CALLBACK_MODE
 
 		myImage.save("acq2.bmp");
