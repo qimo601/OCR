@@ -624,11 +624,11 @@ void OcrControl::updateData(DataOutput output, QByteArray array)
 		char * buffer;
 		buffer = new char[IMAGE_BUFF_LENGTH];
 		memcpy(buffer, array.data(), IMAGE_BUFF_LENGTH);
-
+		myImage = QImage(IMAGE_WIDTH, IMAGE_HEIGHT, QImage::Format_RGB888);
 
 #ifdef CALLBACK_MODE
 		// 转换RGB888 到QIMAGE
-		myImage = QImage(IMAGE_WIDTH, IMAGE_HEIGHT, QImage::Format_RGB888);
+		
 		for (int h = 0; h < IMAGE_HEIGHT; h++) {
 			// scanLine returns a ptr to the start of the data for that row 
 			memcpy(myImage.scanLine(h), (buffer + IMAGE_WIDTH * 3 * h),

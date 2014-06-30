@@ -330,9 +330,10 @@ void AcqDriver::captureSingleImage()
 	QImage bmpImage;
 	bmpImage = QImage::fromData((uchar *)imageDataBuf, (int)(imageDataBufLeng));
 
+	bmpImage = bmpImage.convertToFormat(QImage::Format_RGB888);
 	int imageWidth = bmpImage.width();
 	int imageHeight = bmpImage.height();
-	int iamgeLength = imageWidth * imageHeight;
+	int iamgeLength = imageWidth * imageHeight * 3 ;
 	bmpImage.save("acq.bmp");
 	//睡眠调节 采集图片时间 1秒两次 
 	uchar * bmpImageBits;
