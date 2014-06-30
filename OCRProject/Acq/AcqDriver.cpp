@@ -86,13 +86,13 @@ AcqDriver::~AcqDriver()
 		pbData = NULL;
 	}
  
- 
+#ifdef	OFFLINE_DEBUG 
 	if (m_timerId != 0)
 	{
 		m_timerId = 0;
 		killTimer(m_timerId);
 	}
-
+#endif
 }
 
 LONG AcqDriver::init()

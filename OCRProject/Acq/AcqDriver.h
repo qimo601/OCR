@@ -11,7 +11,7 @@
 #include "AVSDK/AVerCapAPI.h"
 #include "Include/CCycleBuffer.h"
 #include <QTimerEvent>
-#define	OFFLINE_DEBUG 
+//#define	OFFLINE_DEBUG 
 #define CALLBACK_MODE 1
 
 class AcqDriver :public QObject
