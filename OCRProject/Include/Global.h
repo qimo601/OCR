@@ -43,7 +43,8 @@
 
 #define  IMAGE_WIDTH 720 
 #define  IMAGE_HEIGHT 576 
-#define	 IMAGE_BUFF_LENGTH 720*576*3
+#define BMP_HEADER 54 
+#define	 IMAGE_BUFF_LENGTH (720*576*3 + BMP_HEADER )
 
 class Global : public QObject
 {
