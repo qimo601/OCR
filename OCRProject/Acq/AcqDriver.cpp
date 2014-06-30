@@ -319,17 +319,17 @@ void AcqDriver::timerEvent(QTimerEvent *event)
 void AcqDriver::captureSingleImage()
 {
 #ifndef	OFFLINE_DEBUG 
- 	
+	BYTE * bmpDataBuf ;
 	// 50 ms 
 	LONG rtValue = AVerCaptureSingleImageToBuffer(hSDCaptureDevice,
 		NULL, &imageDataBufLeng, NULL, 50);
-	imageDataBuf = new BYTE[imageDataBufLeng];
+	bmpDataBuf = new BYTE[imageDataBufLeng];
 
 	rtValue |= AVerCaptureSingleImageToBuffer(hSDCaptureDevice,
 		imageDataBuf, &imageDataBufLeng, NULL, 50);
 
 	QImage bmpImage;
-	bmpImage = QImage::fromData((uchar *)imageDataBuf, (int)(imageDataBufLeng));
+	bmpImage = QImage::fromData((uchar *)bmpDataBuf, (int)(imageDataBufLeng));
 
 	bmpImage = bmpImage.convertToFormat(QImage::Format_RGB888);
 	int imageWidth = bmpImage.width();
@@ -350,6 +350,7 @@ void AcqDriver::captureSingleImage()
 
 
 	}
+	delete[] bmpDataBuf; 
 #endif 
  
 }
