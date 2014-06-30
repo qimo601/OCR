@@ -28,7 +28,7 @@ AcqDriver::AcqDriver(QObject *parent)
 
 void AcqDriver::createFalseData()
 {
-	if (count < 20 )
+	if (count < 18 )
 		count += 1 ;
 	else
 		count = 0 ;
