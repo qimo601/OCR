@@ -105,7 +105,7 @@ void BllDataIdentity::start()
 			byteArray.append((char *)data, IMAGE_BUFF_LENGTH );
 			DataOutput emptyDataOutput;
 			
-			emit readyReadBmp(emptyDataOutput, byteArray);
+		
 
 #ifdef CALLBACK_MODE
 			// 转换RGB888 到QIMAGE
@@ -119,7 +119,7 @@ void BllDataIdentity::start()
 			myImage = QImage::fromData((uchar *)data, (int)(IMAGE_BUFF_LENGTH));
 
 #endif // !CALLBACK_MODE
-			 
+			emit readyReadBmp(emptyDataOutput, byteArray);
 			//QString curPath = QDir::currentPath();
 			QDir::setCurrent(QString("./acqImages/"));
 
