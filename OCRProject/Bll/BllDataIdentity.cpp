@@ -89,8 +89,8 @@ void BllDataIdentity::start()
 
 #ifdef WRITE_IMAGES_BEFORE_IDENTITY
 			Mat mat_temp(IMAGE_HEIGHT, IMAGE_WIDTH, CV_8UC3, data);
-			imshow("a",mat_temp);
-			waitKey(1000);
+			//imshow("a",mat_temp);
+			//waitKey(1000);
 
 			bmpCount++;
 			QPixmap pixmap;
