@@ -34,22 +34,27 @@ LONG BllDataIdentity::isDataOutputNew(DataOutput &outputStruct)
 	outputStruct.changeStatus = 0 ;
 	for (int i = 0; i < outputStruct.horseNum; i++)
 	{
-		if (outputStruct.WIN[i] != priDataOutput.WIN[i])
+		if (abs(outputStruct.WIN[i] - priDataOutput.WIN[i]) > 1 )
 		{
+			qDebug("WIN : i=%d , new is %f pri is %f ", i,  outputStruct.WIN[i], priDataOutput.WIN[i]);
 			outputStruct.changeStatus = WIN_CHANGED;
-			break;
+			goto JUDGE_PLA ;
 		}
 
 	}
+JUDGE_PLA:
+
 	for (int i = 0; i < outputStruct.horseNum; i++)
 	{
 
-		if (outputStruct.PLA[i] != priDataOutput.PLA[i])
+		if (abs(outputStruct.PLA[i] - priDataOutput.PLA[i]) > 1 )
 		{
+			qDebug("PLA:i=%d ,new is %f pri is %f ", i,  outputStruct.PLA[i], priDataOutput.PLA[i]);
 			outputStruct.changeStatus = outputStruct.changeStatus | PLA_CHANGED;
 			break;
 		}
 	}
+	JUDGE_QIN_QPL :
 	for (int i = 0; i < 7; i++)
 	{
 
@@ -57,13 +62,15 @@ LONG BllDataIdentity::isDataOutputNew(DataOutput &outputStruct)
 		{
 			if (i == j || i == (j + 1))
 				continue;
-			if (outputStruct.QPL_QIN[i][j] != priDataOutput.QPL_QIN[i][i])
+			if (abs(outputStruct.QPL_QIN[i][j] - priDataOutput.QPL_QIN[i][j]) > 0.05)
 			{
+				qDebug("QIN_QPL:i=%d ,j=%d new is %f pri is %f ", i, j, outputStruct.QPL_QIN[i][j], priDataOutput.QPL_QIN[i][j]);
 				outputStruct.changeStatus = outputStruct.changeStatus | QIN_QPL_CHANGED;
-				break;
+				goto END;
 			}
 		}
 	}
+	END:
 	priDataOutput = outputStruct;
 	return 1;
 }
