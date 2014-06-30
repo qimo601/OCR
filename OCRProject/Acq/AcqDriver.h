@@ -28,6 +28,7 @@ private:
 	VIDEO_SAMPLE_INFO * cpVideoInfo;
 	BYTE * imageDataBuf;
 	uchar * bmpImageBits;
+ 
 	LONG imageDataBufLeng;
 
 	VIDEO_CAPTURE_INFO VideoCaptureInfo;

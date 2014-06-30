@@ -204,7 +204,13 @@ LONG AcqDriver::open()
  
 #endif
 #ifndef CALLBACK_MODE
-	 // 500ms 启动定时器
+	
+	 
+		//申请 地址 
+		rtValue |= AVerCaptureSingleImageToBuffer(hSDCaptureDevice,
+			NULL, &imageDataBufLeng, NULL, 50);
+		imageDataBuf = new BYTE[imageDataBufLeng];
+		// 500ms 启动定时器
 		m_timerId = startTimer(500);
 
 		if (rtValue == CAP_EC_SUCCESS)
@@ -319,39 +325,32 @@ void AcqDriver::timerEvent(QTimerEvent *event)
 void AcqDriver::captureSingleImage()
 {
 #ifndef	OFFLINE_DEBUG 
-	BYTE * bmpDataBuf ;
-	// 50 ms 
+ 
+	 
 	LONG rtValue = AVerCaptureSingleImageToBuffer(hSDCaptureDevice,
-		NULL, &imageDataBufLeng, NULL, 50);
-	bmpDataBuf = new BYTE[imageDataBufLeng];
-
-	rtValue |= AVerCaptureSingleImageToBuffer(hSDCaptureDevice,
 		imageDataBuf, &imageDataBufLeng, NULL, 50);
+ 
+	localImage = QImage::fromData((uchar *)imageDataBuf, (int)(imageDataBufLeng));
 
-	QImage bmpImage;
-	bmpImage = QImage::fromData((uchar *)bmpDataBuf, (int)(imageDataBufLeng));
-
-	bmpImage = bmpImage.convertToFormat(QImage::Format_RGB888);
-	int imageWidth = bmpImage.width();
-	int imageHeight = bmpImage.height();
+	localImage = localImage.convertToFormat(QImage::Format_RGB888);
+	int imageWidth = localImage.width();
+	int imageHeight = localImage.height();
 	int imageLength = imageWidth * imageHeight * 3 ;
-	bmpImage.save("acq.bmp");
+	localImage.save("acq.bmp");
 	//睡眠调节 采集图片时间 1秒两次 
-	uchar * bmpImageBits;
-	bmpImageBits = bmpImage.bits();
+	 
 	// 内存拷贝,添加至环形缓冲区
-	if (bmpImageBits == NULL || imageLength > Global::S_CCycleBuffer->getBufSize())
+	if (localImage.bits() == NULL || imageLength > Global::S_CCycleBuffer->getBufSize())
 	{
 		qDebug("AcqDriver: captureSingleImage func wrong ! \n");
 	}
 	//if (Global::S_CCycleBuffer->getFreeSize() >= lLength )
 	{
-		Global::S_CCycleBuffer->write((char *)bmpImageBits, imageLength);
+		Global::S_CCycleBuffer->write((char *)localImage.bits(), imageLength);
 
 
 	}
-	delete[] bmpDataBuf; 
-	delete[] bmpImageBits;
+ 
 #endif 
  
 }
