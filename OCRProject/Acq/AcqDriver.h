@@ -12,7 +12,7 @@
 #include "Include/CCycleBuffer.h"
 #include <QTimerEvent>
 //#define	OFFLINE_DEBUG 
-#define CALLBACK_MODE 0
+//#define CALLBACK_MODE 
 
 class AcqDriver :public QObject
 {

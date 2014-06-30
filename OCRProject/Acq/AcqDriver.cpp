@@ -178,8 +178,8 @@ LONG AcqDriver::open()
 	// 开始视频流	
 	LONG rtValue = 0; 
 	rtValue |= AVerStartStreaming(hSDCaptureDevice);
-	if (CALLBACK_MODE == 1)
-	{
+#ifdef CALLBACK_MODE
+  
 		//设置采集信息
 		ZeroMemory(&VideoCaptureInfo, sizeof(VIDEO_CAPTURE_INFO));
 		VideoCaptureInfo.bOverlayMix = FALSE;
@@ -201,21 +201,22 @@ LONG AcqDriver::open()
 		{
 			return CAP_EC_ERROR_STATE;
 		}
-	}
-	else
-	{// 500ms 启动定时器
+ 
+#endif
+#ifndef CALLBACK_MODE
+	 // 500ms 启动定时器
 		m_timerId = startTimer(500);
-		
+
 		if (rtValue == CAP_EC_SUCCESS)
 			return CAP_EC_SUCCESS;
 		else
 		{
 			return CAP_EC_ERROR_STATE;
 		}
+ 
+#endif // !CALLBACK_MODE
 
-
-	}
-
+ 
 }
 
 
@@ -309,7 +310,7 @@ void AcqDriver::captureSingleImage()
  
 	BYTE * lpBmpData;
 	LONG  plBufferSize;
-
+	
 	// 50 ms 
 	LONG rtValue = AVerCaptureSingleImageToBuffer(hSDCaptureDevice,
 		NULL, &plBufferSize, NULL, 50);
@@ -325,18 +326,20 @@ void AcqDriver::captureSingleImage()
 	int imageHeight = bmpImage.height();
 	int iamgeLength = imageWidth * imageHeight;
 	//睡眠调节 采集图片时间 1秒两次 
-	 
+	uchar * bmpImageBits;
+	bmpImageBits = bmpImage.bits();
 	// 内存拷贝,添加至环形缓冲区
-	if (lpBmpData == NULL || iamgeLength > Global::S_CCycleBuffer->getBufSize())
+	if (bmpImageBits == NULL || iamgeLength > Global::S_CCycleBuffer->getBufSize())
 	{
 		qDebug("AcqDriver: captureSingleImage func wrong ! \n");
 	}
 	//if (Global::S_CCycleBuffer->getFreeSize() >= lLength )
 	{
-		Global::S_CCycleBuffer->write((char *)lpBmpData, iamgeLength);
+		Global::S_CCycleBuffer->write((char *)bmpImageBits, iamgeLength);
 
 
 	}
 	delete[] lpBmpData;
+	delete[] bmpImageBits;
  
 }

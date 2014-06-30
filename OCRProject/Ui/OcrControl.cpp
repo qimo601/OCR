@@ -620,17 +620,27 @@ void OcrControl::updateData(DataOutput output, QByteArray array)
 		//更新图片信息
 		QPixmap pixmap;
 		QImage myImage;
-		myImage = QImage(IMAGE_WIDTH, IMAGE_HEIGHT, QImage::Format_RGB888);
+		
 		char * buffer;
 		buffer = new char[IMAGE_BUFF_LENGTH];
 		memcpy(buffer, array.data(), IMAGE_BUFF_LENGTH);
 
+
+#ifdef CALLBACK_MODE
 		// 转换RGB888 到QIMAGE
+		myImage = QImage(IMAGE_WIDTH, IMAGE_HEIGHT, QImage::Format_RGB888);
 		for (int h = 0; h < IMAGE_HEIGHT; h++) {
 			// scanLine returns a ptr to the start of the data for that row 
 			memcpy(myImage.scanLine(h), (buffer + IMAGE_WIDTH * 3 * h),
 				IMAGE_WIDTH * 3);
 		}
+#endif
+#ifndef CALLBACK_MODE
+
+		myImage.loadFromData(array);
+#endif // !CALLBACK_MODE
+
+		
 		myImage = myImage.scaled(IMAGE_WIDTH *0.8 , IMAGE_HEIGHT *0.8 );
 		pixmap = pixmap.fromImage(myImage);
 		ui.imageLbl->setPixmap(pixmap);

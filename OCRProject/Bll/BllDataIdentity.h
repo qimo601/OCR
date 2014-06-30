@@ -4,6 +4,8 @@
 #include <QObject>
 #include "Include/Global.h"
 #include "DataIdentity.h"
+
+//#define  CALLBACK_MODE
 #define WRITE_IMAGES_BEFORE_IDENTITY
 
 class BllDataIdentity : public QObject

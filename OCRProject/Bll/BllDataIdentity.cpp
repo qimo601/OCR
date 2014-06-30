@@ -107,12 +107,18 @@ void BllDataIdentity::start()
 			
 			emit readyReadBmp(emptyDataOutput, byteArray);
 
+#ifdef CALLBACK_MODE
 			// 转换RGB888 到QIMAGE
 			for (int h = 0; h < IMAGE_HEIGHT; h++) {
 				// scanLine returns a ptr to the start of the data for that row 
 				memcpy(myImage.scanLine(h), (data + IMAGE_WIDTH * 3 * h),
 					IMAGE_WIDTH * 3);
 			}
+#endif
+#ifndef CALLBACK_MODE
+			myImage.loadFromData(byteArray) ;
+#endif // !CALLBACK_MODE
+
 
 			//QString curPath = QDir::currentPath();
 			QDir::setCurrent(QString("./acqImages/"));
