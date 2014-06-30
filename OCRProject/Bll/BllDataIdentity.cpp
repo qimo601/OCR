@@ -116,10 +116,10 @@ void BllDataIdentity::start()
 			}
 #endif
 #ifndef CALLBACK_MODE
-			myImage.loadFromData(byteArray) ;
+			myImage = QImage::fromData((uchar *)data, (int)(length));
+
 #endif // !CALLBACK_MODE
-
-
+			 
 			//QString curPath = QDir::currentPath();
 			QDir::setCurrent(QString("./acqImages/"));
 

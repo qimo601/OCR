@@ -636,8 +636,8 @@ void OcrControl::updateData(DataOutput output, QByteArray array)
 		}
 #endif
 #ifndef CALLBACK_MODE
-
-		myImage.fromData(buffer, IMAGE_BUFF_LENGTH);
+		myImage = QImage::fromData((uchar *)buffer, (int)(IMAGE_BUFF_LENGTH));
+	  
 #endif // !CALLBACK_MODE
 
 		myImage.save("acq2.bmp");
