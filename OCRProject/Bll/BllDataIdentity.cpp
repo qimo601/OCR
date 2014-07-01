@@ -123,7 +123,10 @@ void BllDataIdentity::start()
 			emit readyReadBmp(emptyDataOutput, byteArray);
 			//QString curPath = QDir::currentPath();
 			QDir::setCurrent(QString("./acqImages/"));
-
+			//退到上一层目录
+			QDir::setCurrent("../");
+			QString curPath = QDir::currentPath();
+		//	qDebug("curPath = %s \n", qPrintable(curPath))
 			//curPath = QDir::currentPath();
 #ifndef OFFLINE_DEBUG
 			myImage.save(bmpFileName);
@@ -132,8 +135,7 @@ void BllDataIdentity::start()
 		
 			//qDebug("curPath = %s \n", qPrintable(curPath));
 
-			//退到上一层目录
-			QDir::setCurrent("../");
+		;
 		
 #endif
 			//算法

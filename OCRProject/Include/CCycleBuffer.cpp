@@ -43,6 +43,11 @@ int CCycleBuffer::write(char* buf, int count)
 		|----------------------------------|-----------------------------------------| 
 									m_nWritePos        m_nBufSize 
 		*/  
+		if (buf == NULL)
+		{
+			qDebug("CCycleBuff buf is NULL \n") ;
+			return -1 ;
+		}
 		int leftcount = m_nBufSize - m_nWritePos;  
 		if(leftcount > count)  
 		{  
