@@ -29,7 +29,7 @@ AcqDriver::AcqDriver(QObject *parent)
 void AcqDriver::createFalseData()
 {
 	if (count < 140000 )
-		count += 30 ;
+		count += 60 ;
 	else
 		count = 0 ;
 
