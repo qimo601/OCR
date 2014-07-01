@@ -111,7 +111,7 @@ bool DataIdentity::read(uchar* data, int length, int height, int width)
 		imageHeight = height;
 		imageWidth = width;
 #ifndef CALLBACK_MODE
-		 cvtColor(image, image, CV_RGB2BGR);
+		// cvtColor(image, image, CV_RGB2BGR);
 #endif // OFFLINE_DEBUG
  
 
@@ -175,7 +175,7 @@ void  DataIdentity::isReady()
 void DataIdentity::haveData()
 {
 	Mat image_temp = image;
-	//	cvtColor(image, image_temp, CV_RGB2BGR);
+	cvtColor(image, image_temp, CV_RGB2BGR);
 	//	cvtColor(image, image_temp, CV_BGR2RGB);
 	// 	imshow("a", image_temp);
 	 //	waitKey();
@@ -257,6 +257,7 @@ void DataIdentity::haveData()
 	}
 
 
+	cvtColor(image, image_temp, CV_RGB2BGR);
 
 	// ==========================================================================
 	// ÑÕÉ«Ò»ÖÂÐÔ

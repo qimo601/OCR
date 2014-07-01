@@ -49,7 +49,11 @@ void AcqDriver::createFalseData()
 	qDebug("AcqDriver:来一帧模拟数据... ");
 
 	if (pbData == NULL)
+	{
 		qDebug("pbData is NULL err! \n");
+		count = 0 ;
+		return ;
+	}
 	Global::S_CCycleBuffer->write((char *)pbData, IMAGE_BUFF_LENGTH);
 
 	cpVideoInfo->dwHeight = IMAGE_HEIGHT;

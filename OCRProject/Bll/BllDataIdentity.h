@@ -8,6 +8,13 @@
 //#define  CALLBACK_MODE
 #define WRITE_IMAGES_BEFORE_IDENTITY
 
+/*
+算法色彩说明 
+进入DataIdentity read函数的时候，色彩为反色。
+进入have data 函数为了识别广告，先将色彩 cvtColor反一下
+然后识别完广告，再反回来。
+yp 20140701
+*/ 
 class BllDataIdentity : public QObject
 {
 	Q_OBJECT
