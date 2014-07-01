@@ -1,11 +1,11 @@
 #include "DataIdentity.h"
 #include <QDebug>
 #include<fstream>
- 
+
 
 //#define  CALLBACK_MODE
 using namespace std;
- 
+
 
 DataIdentity::DataIdentity()
 {
@@ -113,9 +113,9 @@ bool DataIdentity::read(uchar* data, int length, int height, int width)
 #ifndef CALLBACK_MODE
 		// cvtColor(image, image, CV_RGB2BGR);
 #endif // OFFLINE_DEBUG
- 
 
-		
+
+
 		return emptyFlag;
 	}
 }
@@ -181,7 +181,7 @@ void DataIdentity::haveData()
 	cvtColor(image, image_temp, CV_RGB2BGR);
 	//	cvtColor(image, image_temp, CV_BGR2RGB);
 	// 	imshow("a", image_temp);
-	 //	waitKey();
+	//	waitKey();
 	//	IplImage image_temp = mat_temp;
 	//	cvSaveImage("C:\\Users\\ZhouZY\\Desktop\\b.bmp",&image_temp);
 
@@ -210,12 +210,12 @@ void DataIdentity::haveData()
 	{
 		haveDataFlag = true;
 	}
-		
+
 	else
 	{
 		haveDataFlag = false;
 	}
-		
+
 	dataOutput.haveDataFlag = haveDataFlag;
 
 	// =====================================
@@ -1335,12 +1335,14 @@ void DataIdentity::getHorseNum_live()
 	Mat grayROI;
 	int pixelSum;
 	float pixelMean[14];
-	for (int i = 0; i < 14; i++)
+	for (int i = 13; i > 0; i--)
 	{
 		pixelSum = 0;
 		Mat roi(image, imageInfo1.rect[i][0]);
 		cvtColor(roi, grayROI, CV_RGB2GRAY);
 
+		//imshow("a",grayROI);
+		//waitKey();
 		for (int m = 0; m < grayROI.rows; m++)
 		{
 			for (int n = 0; n < grayROI.cols; n++)
@@ -1348,8 +1350,11 @@ void DataIdentity::getHorseNum_live()
 		}
 		pixelMean[i] = float(pixelSum) / (float(grayROI.rows * grayROI.cols));
 
-		if (pixelMean[i]>80)
-			totalNum++;
+		if (pixelMean[i] > 80)
+		{
+			totalNum = i + 1;
+			break;
+		}
 		cout << pixelMean << endl;
 	}
 

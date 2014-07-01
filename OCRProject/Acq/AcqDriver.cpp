@@ -39,7 +39,7 @@ void AcqDriver::createFalseData()
 	fileName.prepend(QString::number(count, 10));
 	//fileName.prepend(QString("./imageSamples/"));
 	//fileName.prepend(QString("E://RDBS_Yp//OCRProject0627//OCRProject//OCRProject//acqImages//"));
-	fileName.prepend(QString("D://20140701-1//")) ;
+	fileName.prepend(QString("D://20140701-2//")) ;
 	localImage.load(fileName);
 
 	qDebug("\n It is %d bmp file \n", count);
@@ -178,7 +178,7 @@ LONG AcqDriver::open()
 
 #endif
 #ifdef OFFLINE_DEBUG
-	m_timerId = startTimer(3000);
+	m_timerId = startTimer(1000);
 #endif // OFFLINE_DEBUG
 
 	// 开始视频流	
