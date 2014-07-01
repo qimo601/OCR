@@ -28,8 +28,8 @@ AcqDriver::AcqDriver(QObject *parent)
 
 void AcqDriver::createFalseData()
 {
-	if (count < 20000 )
-		count +=60 ;
+	if (count < 980 )
+		count +=2 ;
 	else
 		count = 0 ;
 
@@ -38,8 +38,8 @@ void AcqDriver::createFalseData()
 
 	fileName.prepend(QString::number(count, 10));
 	//fileName.prepend(QString("./imageSamples/"));
-	fileName.prepend(QString("E://RDBS_Yp//OCRProject0627//OCRProject//OCRProject//acqImages//"));
-
+	//fileName.prepend(QString("E://RDBS_Yp//OCRProject0627//OCRProject//OCRProject//acqImages//"));
+	fileName.prepend(QString("D://20140701-1//")) ;
 	localImage.load(fileName);
 
 	qDebug("\n It is %d bmp file \n", count);
@@ -178,7 +178,7 @@ LONG AcqDriver::open()
 
 #endif
 #ifdef OFFLINE_DEBUG
-	m_timerId = startTimer(5000);
+	m_timerId = startTimer(3000);
 #endif // OFFLINE_DEBUG
 
 	// 开始视频流	
@@ -216,9 +216,10 @@ LONG AcqDriver::open()
 		rtValue |= AVerCaptureSingleImageToBuffer(hSDCaptureDevice,
 			NULL, &imageDataBufLeng, NULL, 50);
 		imageDataBuf = new BYTE[imageDataBufLeng];
+#ifndef OFFLINE_DEBUG
 		// 500ms 启动定时器
 		m_timerId = startTimer(1000);
-
+#endif
 		if (rtValue == CAP_EC_SUCCESS)
 			return CAP_EC_SUCCESS;
 		else
