@@ -125,7 +125,11 @@ void BllDataIdentity::start()
 			QDir::setCurrent(QString("./acqImages/"));
 
 			//curPath = QDir::currentPath();
+#ifndef OFFLINE_DEBUG
 			myImage.save(bmpFileName);
+#endif // !OFFLINE_DEBUG
+
+		
 			//qDebug("curPath = %s \n", qPrintable(curPath));
 
 			//退到上一层目录
