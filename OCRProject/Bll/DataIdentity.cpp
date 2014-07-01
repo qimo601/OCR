@@ -1350,7 +1350,7 @@ void DataIdentity::getHorseNum_live()
 		}
 		pixelMean[i] = float(pixelSum) / (float(grayROI.rows * grayROI.cols));
 
-		if (pixelMean[i] > 80)
+		if (pixelMean[i] > 45 )
 		{
 			totalNum = i + 1;
 			break;
