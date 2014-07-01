@@ -42,6 +42,11 @@ private:
 	* @brief 检测 是否图片数据发生变化
 	*/
 	LONG  isDataOutputNew(DataOutput &outputStruct);
+	/**
+	* @brief 检测数据输出
+	*/
+	LONG  handleDataOutput(DataOutput &outputStruct);
+
 	DataOutput priDataOutput;
 	bool stopIdentityTag;//标识符
 #ifdef WRITE_IMAGES_BEFORE_IDENTITY

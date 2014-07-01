@@ -27,9 +27,34 @@ void BllDataIdentity::init()
 /**
 * @brief 判断数据是否为新数据
 */
+LONG BllDataIdentity::handleDataOutput(DataOutput &outputStruct)
+{
+	//无数据区域设置为0 
+	for (int i = outputStruct.horseNum; i <= 14;i ++ )
+	{
+		outputStruct.WIN[i] = 0;
+		outputStruct.PLA[i] = 0;
+	}
+	for (int i = outputStruct.horseNum - 7; i < 7;i++)
+	{
+		for (int j = 0; j < i; j++)
+			outputStruct.QPL_QIN[i][j] = 0;
+
+	}
+	for (int i = 0; i < 7; i++)
+	{
+		for (int j = 14-outputStruct.horseNum; j < 15; j++)
+			outputStruct.QPL_QIN[i][j] = 0;
+	}
+	return 1;
+}
+/**
+* @brief 判断数据是否为新数据
+*/
 LONG BllDataIdentity::isDataOutputNew(DataOutput &outputStruct)
 {
 
+	handleDataOutput( outputStruct );
 	// 判断WIN数据是否变化
 	outputStruct.changeStatus = 0 ;
 	for (int i = 0; i < outputStruct.horseNum; i++)
