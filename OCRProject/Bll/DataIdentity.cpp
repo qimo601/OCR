@@ -175,6 +175,9 @@ void  DataIdentity::isReady()
 void DataIdentity::haveData()
 {
 	Mat image_temp = image;
+	//imshow("a", image_temp);
+	//waitKey();
+
 	cvtColor(image, image_temp, CV_RGB2BGR);
 	//	cvtColor(image, image_temp, CV_BGR2RGB);
 	// 	imshow("a", image_temp);
