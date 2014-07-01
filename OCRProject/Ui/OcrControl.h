@@ -53,9 +53,11 @@ public slots:
 	*/
 	void on_stopAcqBtn_clicked();
 	/**
-	* @brief 停止采集
+	* @brief 更新界面
 	*/
 	void updateData(DataOutput, QByteArray);
+	// 更新广告图片
+	void updateADData(DataOutput output, QByteArray array);
 	void updateUiData(DataOutput& output, QByteArray& array);
 	void updateQINQPLData(DataOutput& output, QByteArray& array);
 	 

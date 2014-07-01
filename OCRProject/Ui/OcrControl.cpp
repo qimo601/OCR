@@ -38,7 +38,7 @@ OcrControl::OcrControl(QWidget *parent)
 	QObject::connect(bllDataIdentity, SIGNAL(readyRead(DataOutput, QByteArray)), this, SLOT(updateData(DataOutput, QByteArray)));//停止计算
 
 	//显示广告	
-	QObject::connect(bllDataIdentity, SIGNAL(readyReadBmp(DataOutput, QByteArray)), this, SLOT(updateData(DataOutput, QByteArray)));//停止计算
+	QObject::connect(bllDataIdentity, SIGNAL(readyReadBmp(DataOutput, QByteArray)), this, SLOT(updateADData(DataOutput, QByteArray)));//停止计算
 
 	QObject::connect(this, SIGNAL(startIdentity()), bllDataIdentity, SLOT(start()));//开始计算
 	QObject::connect(this, SIGNAL(stopIdentity()), bllDataIdentity, SLOT(stop()));//停止计算
@@ -607,9 +607,47 @@ void OcrControl::on_stopAcqBtn_clicked()
 	threadDataIdentity->quit();
 
 }
+
+
 /**
-* @brief 停止采集
+* @brief 更新广告图片
 */
+
+void OcrControl::updateADData(DataOutput output, QByteArray array)
+{
+
+		//更新图片信息
+		QPixmap pixmap;
+		QImage myImage;
+
+		char * buffer;
+		buffer = new char[IMAGE_BUFF_LENGTH];
+		memcpy(buffer, array.data(), IMAGE_BUFF_LENGTH);
+		myImage = QImage(IMAGE_WIDTH, IMAGE_HEIGHT, QImage::Format_RGB888);
+
+
+		// 转换RGB888 到QIMAGE
+
+		for (int h = 0; h < IMAGE_HEIGHT; h++) {
+			// scanLine returns a ptr to the start of the data for that row 
+			memcpy(myImage.scanLine(h), (buffer + IMAGE_WIDTH * 3 * h),
+				IMAGE_WIDTH * 3);
+		}
+
+
+		myImage.save("acq2.bmp");
+
+		myImage = myImage.scaled(IMAGE_WIDTH *0.8, IMAGE_HEIGHT *0.8);
+		pixmap = pixmap.fromImage(myImage);
+		ui.imageLbl->setPixmap(pixmap);
+		delete[] buffer;
+	 
+}
+/**
+* @brief 更新数据
+*/
+
+
 void OcrControl::updateData(DataOutput output, QByteArray array)
 {
 

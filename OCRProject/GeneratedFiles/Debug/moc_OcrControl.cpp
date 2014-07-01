@@ -19,8 +19,8 @@
 
 QT_BEGIN_MOC_NAMESPACE
 struct qt_meta_stringdata_OcrControl_t {
-    QByteArrayData data[35];
-    char stringdata[498];
+    QByteArrayData data[36];
+    char stringdata[511];
 };
 #define QT_MOC_LITERAL(idx, ofs, len) \
     Q_STATIC_BYTE_ARRAY_DATA_HEADER_INITIALIZER_WITH_OFFSET(len, \
@@ -58,12 +58,13 @@ QT_MOC_LITERAL(25, 377, 21),
 QT_MOC_LITERAL(26, 399, 10),
 QT_MOC_LITERAL(27, 410, 10),
 QT_MOC_LITERAL(28, 421, 12),
-QT_MOC_LITERAL(29, 434, 11),
-QT_MOC_LITERAL(30, 446, 6),
-QT_MOC_LITERAL(31, 453, 11),
-QT_MOC_LITERAL(32, 465, 5),
-QT_MOC_LITERAL(33, 471, 16),
-QT_MOC_LITERAL(34, 488, 9)
+QT_MOC_LITERAL(29, 434, 6),
+QT_MOC_LITERAL(30, 441, 5),
+QT_MOC_LITERAL(31, 447, 12),
+QT_MOC_LITERAL(32, 460, 11),
+QT_MOC_LITERAL(33, 472, 11),
+QT_MOC_LITERAL(34, 484, 16),
+QT_MOC_LITERAL(35, 501, 9)
     },
     "OcrControl\0connect\0\0disconnect\0login\0"
     "requestHorseInfo\0requestRaceId\0raceNO\0"
@@ -77,9 +78,9 @@ QT_MOC_LITERAL(34, 488, 9)
     "on_submitRealBtn_clicked\0appendStatus\0"
     "status\0on_startAcqBtn_clicked\0"
     "on_stopAcqBtn_clicked\0updateData\0"
-    "DataOutput\0updateUiData\0DataOutput&\0"
-    "output\0QByteArray&\0array\0updateQINQPLData\0"
-    "reConnect"
+    "DataOutput\0updateADData\0output\0array\0"
+    "updateUiData\0DataOutput&\0QByteArray&\0"
+    "updateQINQPLData\0reConnect"
 };
 #undef QT_MOC_LITERAL
 
@@ -89,7 +90,7 @@ static const uint qt_meta_data_OcrControl[] = {
        7,       // revision
        0,       // classname
        0,    0, // classinfo
-      25,   14, // methods
+      26,   14, // methods
        0,    0, // properties
        0,    0, // enums/sets
        0,    0, // constructors
@@ -97,33 +98,34 @@ static const uint qt_meta_data_OcrControl[] = {
       11,       // signalCount
 
  // signals: name, argc, parameters, tag, flags
-       1,    2,  139,    2, 0x06 /* Public */,
-       3,    0,  144,    2, 0x06 /* Public */,
-       4,    0,  145,    2, 0x06 /* Public */,
-       5,    0,  146,    2, 0x06 /* Public */,
-       6,    1,  147,    2, 0x06 /* Public */,
-       8,    1,  150,    2, 0x06 /* Public */,
-      10,    0,  153,    2, 0x06 /* Public */,
-      11,    0,  154,    2, 0x06 /* Public */,
-      12,    0,  155,    2, 0x06 /* Public */,
-      13,    0,  156,    2, 0x06 /* Public */,
-      14,    0,  157,    2, 0x06 /* Public */,
+       1,    2,  144,    2, 0x06 /* Public */,
+       3,    0,  149,    2, 0x06 /* Public */,
+       4,    0,  150,    2, 0x06 /* Public */,
+       5,    0,  151,    2, 0x06 /* Public */,
+       6,    1,  152,    2, 0x06 /* Public */,
+       8,    1,  155,    2, 0x06 /* Public */,
+      10,    0,  158,    2, 0x06 /* Public */,
+      11,    0,  159,    2, 0x06 /* Public */,
+      12,    0,  160,    2, 0x06 /* Public */,
+      13,    0,  161,    2, 0x06 /* Public */,
+      14,    0,  162,    2, 0x06 /* Public */,
 
  // slots: name, argc, parameters, tag, flags
-      15,    0,  158,    2, 0x0a /* Public */,
-      16,    0,  159,    2, 0x0a /* Public */,
-      17,    0,  160,    2, 0x0a /* Public */,
-      18,    0,  161,    2, 0x0a /* Public */,
-      19,    0,  162,    2, 0x0a /* Public */,
-      20,    0,  163,    2, 0x0a /* Public */,
-      21,    0,  164,    2, 0x0a /* Public */,
-      22,    1,  165,    2, 0x0a /* Public */,
-      24,    0,  168,    2, 0x0a /* Public */,
-      25,    0,  169,    2, 0x0a /* Public */,
-      26,    2,  170,    2, 0x0a /* Public */,
-      28,    2,  175,    2, 0x0a /* Public */,
-      33,    2,  180,    2, 0x0a /* Public */,
-      34,    0,  185,    2, 0x0a /* Public */,
+      15,    0,  163,    2, 0x0a /* Public */,
+      16,    0,  164,    2, 0x0a /* Public */,
+      17,    0,  165,    2, 0x0a /* Public */,
+      18,    0,  166,    2, 0x0a /* Public */,
+      19,    0,  167,    2, 0x0a /* Public */,
+      20,    0,  168,    2, 0x0a /* Public */,
+      21,    0,  169,    2, 0x0a /* Public */,
+      22,    1,  170,    2, 0x0a /* Public */,
+      24,    0,  173,    2, 0x0a /* Public */,
+      25,    0,  174,    2, 0x0a /* Public */,
+      26,    2,  175,    2, 0x0a /* Public */,
+      28,    2,  180,    2, 0x0a /* Public */,
+      31,    2,  185,    2, 0x0a /* Public */,
+      34,    2,  190,    2, 0x0a /* Public */,
+      35,    0,  195,    2, 0x0a /* Public */,
 
  // signals: parameters
     QMetaType::Void, QMetaType::QString, QMetaType::Int,    2,    2,
@@ -150,8 +152,9 @@ static const uint qt_meta_data_OcrControl[] = {
     QMetaType::Void,
     QMetaType::Void,
     QMetaType::Void, 0x80000000 | 27, QMetaType::QByteArray,    2,    2,
-    QMetaType::Void, 0x80000000 | 29, 0x80000000 | 31,   30,   32,
-    QMetaType::Void, 0x80000000 | 29, 0x80000000 | 31,   30,   32,
+    QMetaType::Void, 0x80000000 | 27, QMetaType::QByteArray,   29,   30,
+    QMetaType::Void, 0x80000000 | 32, 0x80000000 | 33,   29,   30,
+    QMetaType::Void, 0x80000000 | 32, 0x80000000 | 33,   29,   30,
     QMetaType::Void,
 
        0        // eod
@@ -184,9 +187,10 @@ void OcrControl::qt_static_metacall(QObject *_o, QMetaObject::Call _c, int _id, 
         case 19: _t->on_startAcqBtn_clicked(); break;
         case 20: _t->on_stopAcqBtn_clicked(); break;
         case 21: _t->updateData((*reinterpret_cast< DataOutput(*)>(_a[1])),(*reinterpret_cast< QByteArray(*)>(_a[2]))); break;
-        case 22: _t->updateUiData((*reinterpret_cast< DataOutput(*)>(_a[1])),(*reinterpret_cast< QByteArray(*)>(_a[2]))); break;
-        case 23: _t->updateQINQPLData((*reinterpret_cast< DataOutput(*)>(_a[1])),(*reinterpret_cast< QByteArray(*)>(_a[2]))); break;
-        case 24: _t->reConnect(); break;
+        case 22: _t->updateADData((*reinterpret_cast< DataOutput(*)>(_a[1])),(*reinterpret_cast< QByteArray(*)>(_a[2]))); break;
+        case 23: _t->updateUiData((*reinterpret_cast< DataOutput(*)>(_a[1])),(*reinterpret_cast< QByteArray(*)>(_a[2]))); break;
+        case 24: _t->updateQINQPLData((*reinterpret_cast< DataOutput(*)>(_a[1])),(*reinterpret_cast< QByteArray(*)>(_a[2]))); break;
+        case 25: _t->reConnect(); break;
         default: ;
         }
     } else if (_c == QMetaObject::IndexOfMethod) {
@@ -286,13 +290,13 @@ int OcrControl::qt_metacall(QMetaObject::Call _c, int _id, void **_a)
     if (_id < 0)
         return _id;
     if (_c == QMetaObject::InvokeMetaMethod) {
-        if (_id < 25)
+        if (_id < 26)
             qt_static_metacall(this, _c, _id, _a);
-        _id -= 25;
+        _id -= 26;
     } else if (_c == QMetaObject::RegisterMethodArgumentMetaType) {
-        if (_id < 25)
+        if (_id < 26)
             *reinterpret_cast<int*>(_a[0]) = -1;
-        _id -= 25;
+        _id -= 26;
     }
     return _id;
 }
