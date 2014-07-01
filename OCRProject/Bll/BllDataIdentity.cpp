@@ -30,7 +30,7 @@ void BllDataIdentity::init()
 LONG BllDataIdentity::handleDataOutput(DataOutput &outputStruct)
 {
 	//无数据区域设置为0 
-	for (int i = outputStruct.horseNum; i <= 14;i ++ )
+	for (int i = outputStruct.horseNum; i < 14;i ++ )
 	{
 		outputStruct.WIN[i] = 0;
 		outputStruct.PLA[i] = 0;
@@ -43,7 +43,7 @@ LONG BllDataIdentity::handleDataOutput(DataOutput &outputStruct)
 	}
 	for (int i = 0; i < 7; i++)
 	{
-		for (int j = 14-outputStruct.horseNum; j < 15; j++)
+		for (int j = outputStruct.horseNum+1; j < 15; j++)
 			outputStruct.QPL_QIN[i][j] = 0;
 	}
 	return 1;
@@ -148,14 +148,15 @@ void BllDataIdentity::start()
 			emit readyReadBmp(emptyDataOutput, byteArray);
 			//QString curPath = QDir::currentPath();
 			QDir::setCurrent(QString("./acqImages/"));
+#ifndef OFFLINE_DEBUG
+			myImage.save(bmpFileName);
+#endif // !OFFLINE_DEBUG
 			//退到上一层目录
 			QDir::setCurrent("../");
 			QString curPath = QDir::currentPath();
 		//	qDebug("curPath = %s \n", qPrintable(curPath))
 			//curPath = QDir::currentPath();
-#ifndef OFFLINE_DEBUG
-			myImage.save(bmpFileName);
-#endif // !OFFLINE_DEBUG
+
 
 		
 			//qDebug("curPath = %s \n", qPrintable(curPath));
