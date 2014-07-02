@@ -13,7 +13,7 @@
   <property name="windowTitle">
    <string>OcrControl</string>
   </property>
-  <layout class="QVBoxLayout" name="verticalLayout_3">
+  <layout class="QHBoxLayout" name="horizontalLayout_12">
    <item>
     <layout class="QVBoxLayout" name="verticalLayout_2" stretch="1,7,4,3">
      <item>
@@ -24,25 +24,38 @@
        <property name="frameShadow">
         <enum>QFrame::Raised</enum>
        </property>
-       <widget class="QLabel" name="versionNumLabel">
-        <property name="geometry">
-         <rect>
-          <x>930</x>
-          <y>10</y>
-          <width>221</width>
-          <height>41</height>
-         </rect>
-        </property>
-        <property name="styleSheet">
-         <string notr="true">background-color: rgb(255, 130, 80);</string>
-        </property>
-        <property name="text">
-         <string>ADTime</string>
-        </property>
-        <property name="alignment">
-         <set>Qt::AlignCenter</set>
-        </property>
-       </widget>
+       <layout class="QVBoxLayout" name="verticalLayout_3">
+        <item>
+         <layout class="QHBoxLayout" name="horizontalLayout_13" stretch="8,2">
+          <item>
+           <spacer name="horizontalSpacer">
+            <property name="orientation">
+             <enum>Qt::Horizontal</enum>
+            </property>
+            <property name="sizeHint" stdset="0">
+             <size>
+              <width>738</width>
+              <height>20</height>
+             </size>
+            </property>
+           </spacer>
+          </item>
+          <item>
+           <widget class="QLabel" name="versionNumLabel">
+            <property name="styleSheet">
+             <string notr="true">background-color: rgb(255, 130, 80);</string>
+            </property>
+            <property name="text">
+             <string/>
+            </property>
+            <property name="alignment">
+             <set>Qt::AlignCenter</set>
+            </property>
+           </widget>
+          </item>
+         </layout>
+        </item>
+       </layout>
       </widget>
      </item>
      <item>
@@ -123,7 +136,7 @@
         </widget>
        </item>
        <item>
-        <layout class="QVBoxLayout" name="verticalLayout" stretch="1,5">
+        <layout class="QVBoxLayout" name="verticalLayout" stretch="1,7">
          <property name="spacing">
           <number>0</number>
          </property>
@@ -135,60 +148,84 @@
            <property name="frameShadow">
             <enum>QFrame::Raised</enum>
            </property>
-           <layout class="QHBoxLayout" name="horizontalLayout_8" stretch="1,6,1,6">
+           <layout class="QHBoxLayout" name="horizontalLayout_11">
             <item>
-             <widget class="QLabel" name="label">
-              <property name="font">
-               <font>
-                <pointsize>15</pointsize>
-                <weight>75</weight>
-                <bold>true</bold>
-               </font>
-              </property>
-              <property name="text">
-               <string>场次：</string>
-              </property>
-             </widget>
-            </item>
-            <item>
-             <widget class="QTextEdit" name="sessionTextEdit">
-              <property name="styleSheet">
-               <string notr="true">background-color: rgb(169, 181, 255);</string>
-              </property>
-             </widget>
-            </item>
-            <item>
-             <widget class="QLabel" name="label_2">
-              <property name="font">
-               <font>
-                <pointsize>15</pointsize>
-                <weight>75</weight>
-                <bold>true</bold>
-               </font>
-              </property>
-              <property name="text">
-               <string>倒计时：</string>
-              </property>
-             </widget>
-            </item>
-            <item>
-             <widget class="QTextEdit" name="raceTimeTextEdit">
-              <property name="styleSheet">
-               <string notr="true">background-color: rgb(169, 181, 255);</string>
-              </property>
-             </widget>
+             <layout class="QHBoxLayout" name="horizontalLayout_8">
+              <item>
+               <widget class="QLabel" name="label">
+                <property name="font">
+                 <font>
+                  <pointsize>15</pointsize>
+                  <weight>75</weight>
+                  <bold>true</bold>
+                 </font>
+                </property>
+                <property name="text">
+                 <string>场次：</string>
+                </property>
+               </widget>
+              </item>
+              <item>
+               <widget class="QTextEdit" name="sessionTextEdit">
+                <property name="styleSheet">
+                 <string notr="true">background-color: rgb(169, 181, 255);</string>
+                </property>
+               </widget>
+              </item>
+              <item>
+               <widget class="QLabel" name="label_2">
+                <property name="font">
+                 <font>
+                  <pointsize>15</pointsize>
+                  <weight>75</weight>
+                  <bold>true</bold>
+                 </font>
+                </property>
+                <property name="text">
+                 <string>倒计时：</string>
+                </property>
+               </widget>
+              </item>
+              <item>
+               <widget class="QTextEdit" name="raceTimeTextEdit">
+                <property name="styleSheet">
+                 <string notr="true">background-color: rgb(169, 181, 255);</string>
+                </property>
+               </widget>
+              </item>
+             </layout>
             </item>
            </layout>
           </widget>
          </item>
          <item>
-          <widget class="QLabel" name="imageLbl">
-           <property name="styleSheet">
-            <string notr="true">background-color: rgb(6, 6, 6);</string>
+          <widget class="QFrame" name="frame">
+           <property name="frameShape">
+            <enum>QFrame::StyledPanel</enum>
            </property>
-           <property name="text">
-            <string>TextLabel</string>
+           <property name="frameShadow">
+            <enum>QFrame::Raised</enum>
            </property>
+           <layout class="QVBoxLayout" name="verticalLayout_8">
+            <item>
+             <layout class="QHBoxLayout" name="horizontalLayout_2" stretch="1,1">
+              <item>
+               <widget class="QLabel" name="imageLbl">
+                <property name="text">
+                 <string>TextLabel</string>
+                </property>
+               </widget>
+              </item>
+              <item>
+               <widget class="QGroupBox" name="groupBox">
+                <property name="title">
+                 <string>GroupBox</string>
+                </property>
+               </widget>
+              </item>
+             </layout>
+            </item>
+           </layout>
           </widget>
          </item>
         </layout>
@@ -396,25 +433,6 @@
           </property>
           <property name="text">
            <string>QIN</string>
-          </property>
-         </widget>
-         <widget class="QLabel" name="adTimeLbl">
-          <property name="geometry">
-           <rect>
-            <x>800</x>
-            <y>40</y>
-            <width>71</width>
-            <height>81</height>
-           </rect>
-          </property>
-          <property name="styleSheet">
-           <string notr="true">background-color: rgb(255, 130, 80);</string>
-          </property>
-          <property name="text">
-           <string>ADTime</string>
-          </property>
-          <property name="alignment">
-           <set>Qt::AlignCenter</set>
           </property>
          </widget>
          <widget class="QWidget" name="layoutWidget">
@@ -827,24 +845,43 @@
            </item>
           </layout>
          </widget>
-         <widget class="QLabel" name="imageFileNameLabel">
+         <widget class="QWidget" name="">
           <property name="geometry">
            <rect>
-            <x>940</x>
+            <x>800</x>
             <y>40</y>
-            <width>71</width>
-            <height>81</height>
+            <width>98</width>
+            <height>61</height>
            </rect>
           </property>
-          <property name="styleSheet">
-           <string notr="true">background-color: rgb(255, 130, 80);</string>
-          </property>
-          <property name="text">
-           <string>imageName</string>
-          </property>
-          <property name="alignment">
-           <set>Qt::AlignCenter</set>
-          </property>
+          <layout class="QHBoxLayout" name="horizontalLayout_10">
+           <item>
+            <widget class="QLabel" name="adTimeLbl">
+             <property name="styleSheet">
+              <string notr="true">background-color: rgb(255, 130, 80);</string>
+             </property>
+             <property name="text">
+              <string>ADTime</string>
+             </property>
+             <property name="alignment">
+              <set>Qt::AlignCenter</set>
+             </property>
+            </widget>
+           </item>
+           <item>
+            <widget class="QLabel" name="imageFileNameLabel">
+             <property name="styleSheet">
+              <string notr="true">background-color: rgb(255, 130, 80);</string>
+             </property>
+             <property name="text">
+              <string>imageName</string>
+             </property>
+             <property name="alignment">
+              <set>Qt::AlignCenter</set>
+             </property>
+            </widget>
+           </item>
+          </layout>
          </widget>
         </widget>
         <widget class="QWidget" name="page_2">
@@ -1455,133 +1492,110 @@
        <property name="frameShadow">
         <enum>QFrame::Raised</enum>
        </property>
-       <widget class="QPushButton" name="connectBtn">
-        <property name="geometry">
-         <rect>
-          <x>70</x>
-          <y>40</y>
-          <width>101</width>
-          <height>41</height>
-         </rect>
-        </property>
-        <property name="text">
-         <string>连接</string>
-        </property>
-       </widget>
-       <widget class="QPushButton" name="requestHorseInfoBtn">
-        <property name="geometry">
-         <rect>
-          <x>370</x>
-          <y>10</y>
-          <width>101</width>
-          <height>41</height>
-         </rect>
-        </property>
-        <property name="text">
-         <string>请求马信息</string>
-        </property>
-       </widget>
-       <widget class="QTextBrowser" name="textBrowser">
-        <property name="geometry">
-         <rect>
-          <x>590</x>
-          <y>10</y>
-          <width>256</width>
-          <height>121</height>
-         </rect>
-        </property>
-       </widget>
-       <widget class="QPushButton" name="loginBtn">
-        <property name="geometry">
-         <rect>
-          <x>190</x>
-          <y>40</y>
-          <width>101</width>
-          <height>41</height>
-         </rect>
-        </property>
-        <property name="text">
-         <string>登陆</string>
-        </property>
-       </widget>
-       <widget class="QPushButton" name="disconnectBtn">
-        <property name="geometry">
-         <rect>
-          <x>70</x>
-          <y>90</y>
-          <width>101</width>
-          <height>41</height>
-         </rect>
-        </property>
-        <property name="text">
-         <string>断开</string>
-        </property>
-       </widget>
-       <widget class="QPushButton" name="requestRaceIdBtn">
-        <property name="geometry">
-         <rect>
-          <x>370</x>
-          <y>50</y>
-          <width>101</width>
-          <height>41</height>
-         </rect>
-        </property>
-        <property name="text">
-         <string>请求RaceId</string>
-        </property>
-       </widget>
-       <widget class="QPushButton" name="submitRaceTimeBtn">
-        <property name="geometry">
-         <rect>
-          <x>370</x>
-          <y>90</y>
-          <width>101</width>
-          <height>41</height>
-         </rect>
-        </property>
-        <property name="text">
-         <string>提交比赛时长</string>
-        </property>
-       </widget>
-       <widget class="QPushButton" name="submitRealBtn">
-        <property name="geometry">
-         <rect>
-          <x>370</x>
-          <y>130</y>
-          <width>101</width>
-          <height>41</height>
-         </rect>
-        </property>
-        <property name="text">
-         <string>提交实时数据</string>
-        </property>
-       </widget>
-       <widget class="QPushButton" name="startAcqBtn">
-        <property name="geometry">
-         <rect>
-          <x>480</x>
-          <y>10</y>
-          <width>101</width>
-          <height>41</height>
-         </rect>
-        </property>
-        <property name="text">
-         <string>开始实时采集</string>
-        </property>
-       </widget>
-       <widget class="QPushButton" name="stopAcqBtn">
-        <property name="geometry">
-         <rect>
-          <x>480</x>
-          <y>60</y>
-          <width>101</width>
-          <height>41</height>
-         </rect>
-        </property>
-        <property name="text">
-         <string>停止实时采集</string>
-        </property>
-       </widget>
+       <layout class="QVBoxLayout" name="verticalLayout_17">
+        <item>
+         <layout class="QHBoxLayout" name="horizontalLayout_6" stretch="5,3">
+          <item>
+           <layout class="QHBoxLayout" name="horizontalLayout_5">
+            <item>
+             <layout class="QVBoxLayout" name="verticalLayout_16">
+              <item>
+               <layout class="QHBoxLayout" name="horizontalLayout_3">
+                <item>
+                 <widget class="QPushButton" name="connectBtn">
+                  <property name="text">
+                   <string>连接</string>
+                  </property>
+                 </widget>
+                </item>
+                <item>
+                 <widget class="QPushButton" name="loginBtn">
+                  <property name="text">
+                   <string>登陆</string>
+                  </property>
+                 </widget>
+                </item>
+               </layout>
+              </item>
+              <item>
+               <widget class="QPushButton" name="disconnectBtn">
+                <property name="text">
+                 <string>断开</string>
+                </property>
+               </widget>
+              </item>
+             </layout>
+            </item>
+            <item>
+             <layout class="QHBoxLayout" name="horizontalLayout_4">
+              <item>
+               <layout class="QVBoxLayout" name="verticalLayout_15">
+                <item>
+                 <layout class="QVBoxLayout" name="verticalLayout_10">
+                  <item>
+                   <widget class="QPushButton" name="requestHorseInfoBtn">
+                    <property name="text">
+                     <string>请求马信息</string>
+                    </property>
+                   </widget>
+                  </item>
+                  <item>
+                   <widget class="QPushButton" name="requestRaceIdBtn">
+                    <property name="text">
+                     <string>请求RaceId</string>
+                    </property>
+                   </widget>
+                  </item>
+                 </layout>
+                </item>
+                <item>
+                 <layout class="QVBoxLayout" name="verticalLayout_14">
+                  <item>
+                   <widget class="QPushButton" name="submitRaceTimeBtn">
+                    <property name="text">
+                     <string>提交比赛时长</string>
+                    </property>
+                   </widget>
+                  </item>
+                  <item>
+                   <widget class="QPushButton" name="submitRealBtn">
+                    <property name="text">
+                     <string>提交实时数据</string>
+                    </property>
+                   </widget>
+                  </item>
+                 </layout>
+                </item>
+               </layout>
+              </item>
+              <item>
+               <layout class="QVBoxLayout" name="verticalLayout_9">
+                <item>
+                 <widget class="QPushButton" name="startAcqBtn">
+                  <property name="text">
+                   <string>开始实时采集</string>
+                  </property>
+                 </widget>
+                </item>
+                <item>
+                 <widget class="QPushButton" name="stopAcqBtn">
+                  <property name="text">
+                   <string>停止实时采集</string>
+                  </property>
+                 </widget>
+                </item>
+               </layout>
+              </item>
+             </layout>
+            </item>
+           </layout>
+          </item>
+          <item>
+           <widget class="QTextBrowser" name="textBrowser"/>
+          </item>
+         </layout>
+        </item>
+       </layout>
       </widget>
      </item>
     </layout>

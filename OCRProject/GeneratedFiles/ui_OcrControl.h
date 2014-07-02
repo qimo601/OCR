@@ -14,10 +14,12 @@
 #include <QtWidgets/QApplication>
 #include <QtWidgets/QButtonGroup>
 #include <QtWidgets/QFrame>
+#include <QtWidgets/QGroupBox>
 #include <QtWidgets/QHBoxLayout>
 #include <QtWidgets/QHeaderView>
 #include <QtWidgets/QLabel>
 #include <QtWidgets/QPushButton>
+#include <QtWidgets/QSpacerItem>
 #include <QtWidgets/QStackedWidget>
 #include <QtWidgets/QTextBrowser>
 #include <QtWidgets/QTextEdit>
@@ -29,9 +31,12 @@ QT_BEGIN_NAMESPACE
 class Ui_OcrControl
 {
 public:
-    QVBoxLayout *verticalLayout_3;
+    QHBoxLayout *horizontalLayout_12;
     QVBoxLayout *verticalLayout_2;
     QFrame *frame_5;
+    QVBoxLayout *verticalLayout_3;
+    QHBoxLayout *horizontalLayout_13;
+    QSpacerItem *horizontalSpacer;
     QLabel *versionNumLabel;
     QHBoxLayout *horizontalLayout;
     QFrame *horseFrame;
@@ -43,12 +48,17 @@ public:
     QLabel *label_6;
     QVBoxLayout *verticalLayout;
     QFrame *frame_3;
+    QHBoxLayout *horizontalLayout_11;
     QHBoxLayout *horizontalLayout_8;
     QLabel *label;
     QTextEdit *sessionTextEdit;
     QLabel *label_2;
     QTextEdit *raceTimeTextEdit;
+    QFrame *frame;
+    QVBoxLayout *verticalLayout_8;
+    QHBoxLayout *horizontalLayout_2;
     QLabel *imageLbl;
+    QGroupBox *groupBox;
     QFrame *frame_2;
     QStackedWidget *stackedWidget;
     QWidget *page;
@@ -63,7 +73,6 @@ public:
     QLabel *label_18;
     QLabel *label_19;
     QLabel *QINLabel;
-    QLabel *adTimeLbl;
     QWidget *layoutWidget;
     QVBoxLayout *verticalLayout_6;
     QLabel *label_7;
@@ -88,6 +97,9 @@ public:
     QLabel *label_31;
     QLabel *label_32;
     QLabel *label_59;
+    QWidget *widget;
+    QHBoxLayout *horizontalLayout_10;
+    QLabel *adTimeLbl;
     QLabel *imageFileNameLabel;
     QWidget *page_2;
     QWidget *layoutWidget2;
@@ -126,26 +138,36 @@ public:
     QLabel *label_86;
     QLabel *label_87;
     QFrame *frame_4;
+    QVBoxLayout *verticalLayout_17;
+    QHBoxLayout *horizontalLayout_6;
+    QHBoxLayout *horizontalLayout_5;
+    QVBoxLayout *verticalLayout_16;
+    QHBoxLayout *horizontalLayout_3;
     QPushButton *connectBtn;
-    QPushButton *requestHorseInfoBtn;
-    QTextBrowser *textBrowser;
     QPushButton *loginBtn;
     QPushButton *disconnectBtn;
+    QHBoxLayout *horizontalLayout_4;
+    QVBoxLayout *verticalLayout_15;
+    QVBoxLayout *verticalLayout_10;
+    QPushButton *requestHorseInfoBtn;
     QPushButton *requestRaceIdBtn;
+    QVBoxLayout *verticalLayout_14;
     QPushButton *submitRaceTimeBtn;
     QPushButton *submitRealBtn;
+    QVBoxLayout *verticalLayout_9;
     QPushButton *startAcqBtn;
     QPushButton *stopAcqBtn;
+    QTextBrowser *textBrowser;
 
     void setupUi(QWidget *OcrControl)
     {
         if (OcrControl->objectName().isEmpty())
             OcrControl->setObjectName(QStringLiteral("OcrControl"));
         OcrControl->resize(1051, 877);
-        verticalLayout_3 = new QVBoxLayout(OcrControl);
-        verticalLayout_3->setSpacing(6);
-        verticalLayout_3->setContentsMargins(11, 11, 11, 11);
-        verticalLayout_3->setObjectName(QStringLiteral("verticalLayout_3"));
+        horizontalLayout_12 = new QHBoxLayout(OcrControl);
+        horizontalLayout_12->setSpacing(6);
+        horizontalLayout_12->setContentsMargins(11, 11, 11, 11);
+        horizontalLayout_12->setObjectName(QStringLiteral("horizontalLayout_12"));
         verticalLayout_2 = new QVBoxLayout();
         verticalLayout_2->setSpacing(6);
         verticalLayout_2->setObjectName(QStringLiteral("verticalLayout_2"));
@@ -153,11 +175,29 @@ public:
         frame_5->setObjectName(QStringLiteral("frame_5"));
         frame_5->setFrameShape(QFrame::StyledPanel);
         frame_5->setFrameShadow(QFrame::Raised);
+        verticalLayout_3 = new QVBoxLayout(frame_5);
+        verticalLayout_3->setSpacing(6);
+        verticalLayout_3->setContentsMargins(11, 11, 11, 11);
+        verticalLayout_3->setObjectName(QStringLiteral("verticalLayout_3"));
+        horizontalLayout_13 = new QHBoxLayout();
+        horizontalLayout_13->setSpacing(6);
+        horizontalLayout_13->setObjectName(QStringLiteral("horizontalLayout_13"));
+        horizontalSpacer = new QSpacerItem(738, 20, QSizePolicy::Expanding, QSizePolicy::Minimum);
+
+        horizontalLayout_13->addItem(horizontalSpacer);
+
         versionNumLabel = new QLabel(frame_5);
         versionNumLabel->setObjectName(QStringLiteral("versionNumLabel"));
-        versionNumLabel->setGeometry(QRect(930, 10, 221, 41));
         versionNumLabel->setStyleSheet(QStringLiteral("background-color: rgb(255, 130, 80);"));
         versionNumLabel->setAlignment(Qt::AlignCenter);
+
+        horizontalLayout_13->addWidget(versionNumLabel);
+
+        horizontalLayout_13->setStretch(0, 8);
+        horizontalLayout_13->setStretch(1, 2);
+
+        verticalLayout_3->addLayout(horizontalLayout_13);
+
 
         verticalLayout_2->addWidget(frame_5);
 
@@ -220,9 +260,12 @@ public:
         frame_3->setObjectName(QStringLiteral("frame_3"));
         frame_3->setFrameShape(QFrame::StyledPanel);
         frame_3->setFrameShadow(QFrame::Raised);
-        horizontalLayout_8 = new QHBoxLayout(frame_3);
+        horizontalLayout_11 = new QHBoxLayout(frame_3);
+        horizontalLayout_11->setSpacing(6);
+        horizontalLayout_11->setContentsMargins(11, 11, 11, 11);
+        horizontalLayout_11->setObjectName(QStringLiteral("horizontalLayout_11"));
+        horizontalLayout_8 = new QHBoxLayout();
         horizontalLayout_8->setSpacing(6);
-        horizontalLayout_8->setContentsMargins(11, 11, 11, 11);
         horizontalLayout_8->setObjectName(QStringLiteral("horizontalLayout_8"));
         label = new QLabel(frame_3);
         label->setObjectName(QStringLiteral("label"));
@@ -252,21 +295,43 @@ public:
 
         horizontalLayout_8->addWidget(raceTimeTextEdit);
 
-        horizontalLayout_8->setStretch(0, 1);
-        horizontalLayout_8->setStretch(1, 6);
-        horizontalLayout_8->setStretch(2, 1);
-        horizontalLayout_8->setStretch(3, 6);
+
+        horizontalLayout_11->addLayout(horizontalLayout_8);
+
 
         verticalLayout->addWidget(frame_3);
 
-        imageLbl = new QLabel(OcrControl);
+        frame = new QFrame(OcrControl);
+        frame->setObjectName(QStringLiteral("frame"));
+        frame->setFrameShape(QFrame::StyledPanel);
+        frame->setFrameShadow(QFrame::Raised);
+        verticalLayout_8 = new QVBoxLayout(frame);
+        verticalLayout_8->setSpacing(6);
+        verticalLayout_8->setContentsMargins(11, 11, 11, 11);
+        verticalLayout_8->setObjectName(QStringLiteral("verticalLayout_8"));
+        horizontalLayout_2 = new QHBoxLayout();
+        horizontalLayout_2->setSpacing(6);
+        horizontalLayout_2->setObjectName(QStringLiteral("horizontalLayout_2"));
+        imageLbl = new QLabel(frame);
         imageLbl->setObjectName(QStringLiteral("imageLbl"));
-        imageLbl->setStyleSheet(QStringLiteral("background-color: rgb(6, 6, 6);"));
 
-        verticalLayout->addWidget(imageLbl);
+        horizontalLayout_2->addWidget(imageLbl);
+
+        groupBox = new QGroupBox(frame);
+        groupBox->setObjectName(QStringLiteral("groupBox"));
+
+        horizontalLayout_2->addWidget(groupBox);
+
+        horizontalLayout_2->setStretch(0, 1);
+        horizontalLayout_2->setStretch(1, 1);
+
+        verticalLayout_8->addLayout(horizontalLayout_2);
+
+
+        verticalLayout->addWidget(frame);
 
         verticalLayout->setStretch(0, 1);
-        verticalLayout->setStretch(1, 5);
+        verticalLayout->setStretch(1, 7);
 
         horizontalLayout->addLayout(verticalLayout);
 
@@ -359,11 +424,6 @@ public:
 "  color: rgb(255, 97, 24);\n"
 "  font: 75 20pt \"\346\226\260\345\256\213\344\275\223\";\n"
 "}"));
-        adTimeLbl = new QLabel(page);
-        adTimeLbl->setObjectName(QStringLiteral("adTimeLbl"));
-        adTimeLbl->setGeometry(QRect(800, 40, 71, 81));
-        adTimeLbl->setStyleSheet(QStringLiteral("background-color: rgb(255, 130, 80);"));
-        adTimeLbl->setAlignment(Qt::AlignCenter);
         layoutWidget = new QWidget(page);
         layoutWidget->setObjectName(QStringLiteral("layoutWidget"));
         layoutWidget->setGeometry(QRect(690, 30, 16, 136));
@@ -521,11 +581,28 @@ public:
 
         horizontalLayout_7->addWidget(label_59);
 
-        imageFileNameLabel = new QLabel(page);
+        widget = new QWidget(page);
+        widget->setObjectName(QStringLiteral("widget"));
+        widget->setGeometry(QRect(800, 40, 98, 61));
+        horizontalLayout_10 = new QHBoxLayout(widget);
+        horizontalLayout_10->setSpacing(6);
+        horizontalLayout_10->setContentsMargins(11, 11, 11, 11);
+        horizontalLayout_10->setObjectName(QStringLiteral("horizontalLayout_10"));
+        horizontalLayout_10->setContentsMargins(0, 0, 0, 0);
+        adTimeLbl = new QLabel(widget);
+        adTimeLbl->setObjectName(QStringLiteral("adTimeLbl"));
+        adTimeLbl->setStyleSheet(QStringLiteral("background-color: rgb(255, 130, 80);"));
+        adTimeLbl->setAlignment(Qt::AlignCenter);
+
+        horizontalLayout_10->addWidget(adTimeLbl);
+
+        imageFileNameLabel = new QLabel(widget);
         imageFileNameLabel->setObjectName(QStringLiteral("imageFileNameLabel"));
-        imageFileNameLabel->setGeometry(QRect(940, 40, 71, 81));
         imageFileNameLabel->setStyleSheet(QStringLiteral("background-color: rgb(255, 130, 80);"));
         imageFileNameLabel->setAlignment(Qt::AlignCenter);
+
+        horizontalLayout_10->addWidget(imageFileNameLabel);
+
         stackedWidget->addWidget(page);
         page_2 = new QWidget();
         page_2->setObjectName(QStringLiteral("page_2"));
@@ -770,36 +847,116 @@ public:
         frame_4->setStyleSheet(QStringLiteral(""));
         frame_4->setFrameShape(QFrame::StyledPanel);
         frame_4->setFrameShadow(QFrame::Raised);
+        verticalLayout_17 = new QVBoxLayout(frame_4);
+        verticalLayout_17->setSpacing(6);
+        verticalLayout_17->setContentsMargins(11, 11, 11, 11);
+        verticalLayout_17->setObjectName(QStringLiteral("verticalLayout_17"));
+        horizontalLayout_6 = new QHBoxLayout();
+        horizontalLayout_6->setSpacing(6);
+        horizontalLayout_6->setObjectName(QStringLiteral("horizontalLayout_6"));
+        horizontalLayout_5 = new QHBoxLayout();
+        horizontalLayout_5->setSpacing(6);
+        horizontalLayout_5->setObjectName(QStringLiteral("horizontalLayout_5"));
+        verticalLayout_16 = new QVBoxLayout();
+        verticalLayout_16->setSpacing(6);
+        verticalLayout_16->setObjectName(QStringLiteral("verticalLayout_16"));
+        horizontalLayout_3 = new QHBoxLayout();
+        horizontalLayout_3->setSpacing(6);
+        horizontalLayout_3->setObjectName(QStringLiteral("horizontalLayout_3"));
         connectBtn = new QPushButton(frame_4);
         connectBtn->setObjectName(QStringLiteral("connectBtn"));
-        connectBtn->setGeometry(QRect(70, 40, 101, 41));
-        requestHorseInfoBtn = new QPushButton(frame_4);
-        requestHorseInfoBtn->setObjectName(QStringLiteral("requestHorseInfoBtn"));
-        requestHorseInfoBtn->setGeometry(QRect(370, 10, 101, 41));
-        textBrowser = new QTextBrowser(frame_4);
-        textBrowser->setObjectName(QStringLiteral("textBrowser"));
-        textBrowser->setGeometry(QRect(590, 10, 256, 121));
+
+        horizontalLayout_3->addWidget(connectBtn);
+
         loginBtn = new QPushButton(frame_4);
         loginBtn->setObjectName(QStringLiteral("loginBtn"));
-        loginBtn->setGeometry(QRect(190, 40, 101, 41));
+
+        horizontalLayout_3->addWidget(loginBtn);
+
+
+        verticalLayout_16->addLayout(horizontalLayout_3);
+
         disconnectBtn = new QPushButton(frame_4);
         disconnectBtn->setObjectName(QStringLiteral("disconnectBtn"));
-        disconnectBtn->setGeometry(QRect(70, 90, 101, 41));
+
+        verticalLayout_16->addWidget(disconnectBtn);
+
+
+        horizontalLayout_5->addLayout(verticalLayout_16);
+
+        horizontalLayout_4 = new QHBoxLayout();
+        horizontalLayout_4->setSpacing(6);
+        horizontalLayout_4->setObjectName(QStringLiteral("horizontalLayout_4"));
+        verticalLayout_15 = new QVBoxLayout();
+        verticalLayout_15->setSpacing(6);
+        verticalLayout_15->setObjectName(QStringLiteral("verticalLayout_15"));
+        verticalLayout_10 = new QVBoxLayout();
+        verticalLayout_10->setSpacing(6);
+        verticalLayout_10->setObjectName(QStringLiteral("verticalLayout_10"));
+        requestHorseInfoBtn = new QPushButton(frame_4);
+        requestHorseInfoBtn->setObjectName(QStringLiteral("requestHorseInfoBtn"));
+
+        verticalLayout_10->addWidget(requestHorseInfoBtn);
+
         requestRaceIdBtn = new QPushButton(frame_4);
         requestRaceIdBtn->setObjectName(QStringLiteral("requestRaceIdBtn"));
-        requestRaceIdBtn->setGeometry(QRect(370, 50, 101, 41));
+
+        verticalLayout_10->addWidget(requestRaceIdBtn);
+
+
+        verticalLayout_15->addLayout(verticalLayout_10);
+
+        verticalLayout_14 = new QVBoxLayout();
+        verticalLayout_14->setSpacing(6);
+        verticalLayout_14->setObjectName(QStringLiteral("verticalLayout_14"));
         submitRaceTimeBtn = new QPushButton(frame_4);
         submitRaceTimeBtn->setObjectName(QStringLiteral("submitRaceTimeBtn"));
-        submitRaceTimeBtn->setGeometry(QRect(370, 90, 101, 41));
+
+        verticalLayout_14->addWidget(submitRaceTimeBtn);
+
         submitRealBtn = new QPushButton(frame_4);
         submitRealBtn->setObjectName(QStringLiteral("submitRealBtn"));
-        submitRealBtn->setGeometry(QRect(370, 130, 101, 41));
+
+        verticalLayout_14->addWidget(submitRealBtn);
+
+
+        verticalLayout_15->addLayout(verticalLayout_14);
+
+
+        horizontalLayout_4->addLayout(verticalLayout_15);
+
+        verticalLayout_9 = new QVBoxLayout();
+        verticalLayout_9->setSpacing(6);
+        verticalLayout_9->setObjectName(QStringLiteral("verticalLayout_9"));
         startAcqBtn = new QPushButton(frame_4);
         startAcqBtn->setObjectName(QStringLiteral("startAcqBtn"));
-        startAcqBtn->setGeometry(QRect(480, 10, 101, 41));
+
+        verticalLayout_9->addWidget(startAcqBtn);
+
         stopAcqBtn = new QPushButton(frame_4);
         stopAcqBtn->setObjectName(QStringLiteral("stopAcqBtn"));
-        stopAcqBtn->setGeometry(QRect(480, 60, 101, 41));
+
+        verticalLayout_9->addWidget(stopAcqBtn);
+
+
+        horizontalLayout_4->addLayout(verticalLayout_9);
+
+
+        horizontalLayout_5->addLayout(horizontalLayout_4);
+
+
+        horizontalLayout_6->addLayout(horizontalLayout_5);
+
+        textBrowser = new QTextBrowser(frame_4);
+        textBrowser->setObjectName(QStringLiteral("textBrowser"));
+
+        horizontalLayout_6->addWidget(textBrowser);
+
+        horizontalLayout_6->setStretch(0, 5);
+        horizontalLayout_6->setStretch(1, 3);
+
+        verticalLayout_17->addLayout(horizontalLayout_6);
+
 
         verticalLayout_2->addWidget(frame_4);
 
@@ -808,7 +965,7 @@ public:
         verticalLayout_2->setStretch(2, 4);
         verticalLayout_2->setStretch(3, 3);
 
-        verticalLayout_3->addLayout(verticalLayout_2);
+        horizontalLayout_12->addLayout(verticalLayout_2);
 
 
         retranslateUi(OcrControl);
@@ -822,7 +979,7 @@ public:
     void retranslateUi(QWidget *OcrControl)
     {
         OcrControl->setWindowTitle(QApplication::translate("OcrControl", "OcrControl", 0));
-        versionNumLabel->setText(QApplication::translate("OcrControl", "ADTime", 0));
+        versionNumLabel->setText(QString());
         label_4->setText(QApplication::translate("OcrControl", "\345\272\217\345\217\267", 0));
         label_5->setText(QApplication::translate("OcrControl", "\351\251\254\345\220\215", 0));
         label_3->setText(QApplication::translate("OcrControl", "WIN", 0));
@@ -830,6 +987,7 @@ public:
         label->setText(QApplication::translate("OcrControl", "\345\234\272\346\254\241\357\274\232", 0));
         label_2->setText(QApplication::translate("OcrControl", "\345\200\222\350\256\241\346\227\266\357\274\232", 0));
         imageLbl->setText(QApplication::translate("OcrControl", "TextLabel", 0));
+        groupBox->setTitle(QApplication::translate("OcrControl", "GroupBox", 0));
         label_14->setText(QApplication::translate("OcrControl", "9", 0));
         label_15->setText(QApplication::translate("OcrControl", "10", 0));
         label_16->setText(QApplication::translate("OcrControl", "11", 0));
@@ -837,7 +995,6 @@ public:
         label_18->setText(QApplication::translate("OcrControl", "13", 0));
         label_19->setText(QApplication::translate("OcrControl", "14", 0));
         QINLabel->setText(QApplication::translate("OcrControl", "QIN", 0));
-        adTimeLbl->setText(QApplication::translate("OcrControl", "ADTime", 0));
         label_7->setText(QApplication::translate("OcrControl", "1", 0));
         label_8->setText(QApplication::translate("OcrControl", "2", 0));
         label_9->setText(QApplication::translate("OcrControl", "3", 0));
@@ -858,6 +1015,7 @@ public:
         label_31->setText(QApplication::translate("OcrControl", "12", 0));
         label_32->setText(QApplication::translate("OcrControl", "13", 0));
         label_59->setText(QApplication::translate("OcrControl", "14", 0));
+        adTimeLbl->setText(QApplication::translate("OcrControl", "ADTime", 0));
         imageFileNameLabel->setText(QApplication::translate("OcrControl", "imageName", 0));
         label_61->setText(QApplication::translate("OcrControl", "1", 0));
         label_62->setText(QApplication::translate("OcrControl", "2", 0));
@@ -887,9 +1045,9 @@ public:
         label_86->setText(QApplication::translate("OcrControl", "13", 0));
         label_87->setText(QApplication::translate("OcrControl", "14", 0));
         connectBtn->setText(QApplication::translate("OcrControl", "\350\277\236\346\216\245", 0));
-        requestHorseInfoBtn->setText(QApplication::translate("OcrControl", "\350\257\267\346\261\202\351\251\254\344\277\241\346\201\257", 0));
         loginBtn->setText(QApplication::translate("OcrControl", "\347\231\273\351\231\206", 0));
         disconnectBtn->setText(QApplication::translate("OcrControl", "\346\226\255\345\274\200", 0));
+        requestHorseInfoBtn->setText(QApplication::translate("OcrControl", "\350\257\267\346\261\202\351\251\254\344\277\241\346\201\257", 0));
         requestRaceIdBtn->setText(QApplication::translate("OcrControl", "\350\257\267\346\261\202RaceId", 0));
         submitRaceTimeBtn->setText(QApplication::translate("OcrControl", "\346\217\220\344\272\244\346\257\224\350\265\233\346\227\266\351\225\277", 0));
         submitRealBtn->setText(QApplication::translate("OcrControl", "\346\217\220\344\272\244\345\256\236\346\227\266\346\225\260\346\215\256", 0));
