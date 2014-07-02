@@ -15,7 +15,7 @@
   </property>
   <layout class="QHBoxLayout" name="horizontalLayout_12">
    <item>
-    <layout class="QVBoxLayout" name="verticalLayout_2" stretch="1,7,4,3">
+    <layout class="QVBoxLayout" name="verticalLayout_2" stretch="1,7,4,2">
      <item>
       <widget class="QFrame" name="frame_5">
        <property name="frameShape">
@@ -845,7 +845,7 @@
            </item>
           </layout>
          </widget>
-         <widget class="QWidget" name="">
+         <widget class="QWidget" name="layoutWidget">
           <property name="geometry">
            <rect>
             <x>800</x>
