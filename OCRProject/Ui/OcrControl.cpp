@@ -615,7 +615,7 @@ void OcrControl::on_stopAcqBtn_clicked()
 
 void OcrControl::updateADData(DataOutput output, QByteArray array)
 {
-
+		
 		//更新图片信息
 		QPixmap pixmap;
 		QImage myImage;
@@ -641,7 +641,7 @@ void OcrControl::updateADData(DataOutput output, QByteArray array)
 		pixmap = pixmap.fromImage(myImage);
 		ui.imageLbl->setPixmap(pixmap);
 		delete[] buffer;
-	 
+		 
 		QPalette pe;
 		pe.setColor(QPalette::WindowText, Qt::white);
 		ui.adTimeLbl->setText("ADTime");
