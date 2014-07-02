@@ -642,6 +642,12 @@ void OcrControl::updateADData(DataOutput output, QByteArray array)
 		ui.imageLbl->setPixmap(pixmap);
 		delete[] buffer;
 	 
+	
+		ui.adTimeLbl->setText("ADTime");
+		ui.adTimeLbl->setPalette(pe);
+		ui.adTimeLbl->setStyleSheet(QStringLiteral("background-color: rgb(255, 130, 80);"));
+		}
+
 }
 /**
 * @brief 更新数据
@@ -706,12 +712,7 @@ void OcrControl::updateData(DataOutput output, QByteArray array)
 
 			
 	}
-	else
-	{
-		ui.adTimeLbl->setText("ADTime");
-		ui.adTimeLbl->setPalette(pe);
-		ui.adTimeLbl->setStyleSheet(QStringLiteral("background-color: rgb(255, 130, 80);"));
-	}
+	
 		
 	
 
