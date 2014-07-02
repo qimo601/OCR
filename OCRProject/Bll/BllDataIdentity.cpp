@@ -236,7 +236,7 @@ void BllDataIdentity::start()
 					IMAGE_WIDTH * 3);
 			}
 
-			emit readyReadBmp(emptyDataOutput, byteArray);
+			
 			//QString curPath = QDir::currentPath();
 			QDir::setCurrent(QString("./acqImages/"));
 #ifndef OFFLINE_DEBUG
@@ -311,6 +311,10 @@ void BllDataIdentity::start()
 					
 					qDebug() << "【BllDataIdentity】一帧图像识别时间：" << endl;
 				}
+			}
+			else
+			{
+				emit readyReadBmp(emptyDataOutput, byteArray);
 			}
 				
 
