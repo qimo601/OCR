@@ -98,6 +98,7 @@ struct DataOutput
 
 	// image region 3
 	int session;
+	//倒计时时间
 	int raceTime;
 
 	// 检查是否有数据
@@ -105,6 +106,11 @@ struct DataOutput
 	bool haveDataFlag;
 	//检测结果改变情况
 	int changeStatus;
+
+	//比赛时长  一个场次的
+	int onceRaceTime;
+	// onceRaceTIme+倒计时 
+	int totoalRaceTime;
 
 };
 
@@ -121,7 +127,11 @@ enum	dataChangeEnum {
 
 };
 
-
-
+//场次号 以及倒计时 结构体
+struct  raceNumTimeStruct 
+{
+	int content ;
+	int contentCount ;
+};
 
 #endif // HORSEDATASTRUCT_H

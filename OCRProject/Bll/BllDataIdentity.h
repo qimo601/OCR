@@ -46,9 +46,19 @@ private:
 	* @brief 检测数据输出
 	*/
 	LONG  handleDataOutput(DataOutput &outputStruct);
+	/**
+	* @brief 从多次识别出的倒计时、场次号中选出正确的
+	*/
+	LONG chooseRightRaceTimeRaceSession(DataOutput &outputStruct);
 
 	DataOutput priDataOutput;
 	bool stopIdentityTag;//标识符
+
+	// 储存比赛结果信息  最大支持场次号20场  倒计时 30 min
+	struct raceNumTimeStruct  myRaceNumberStruct[20];
+	struct raceNumTimeStruct  myRaceTimeStruct[30];
+	// 数据更新次数统计
+	int		dataNewCount; 
 #ifdef WRITE_IMAGES_BEFORE_IDENTITY
 	int  bmpCount;
 #endif

@@ -6,6 +6,13 @@ BllDataIdentity::BllDataIdentity(QObject *parent)
 	: QObject(parent)
 {
 	stopIdentityTag = false;//初始化
+
+	for (int i = 0; i < 30; i++)
+		memset( myRaceTimeStruct, 0, sizeof(raceNumTimeStruct)*30);
+	for (int i = 0; i < 20;i++)
+		memset( myRaceNumberStruct, 0, sizeof(raceNumTimeStruct)*20);
+	
+	dataNewCount = 0 ;
 #ifdef WRITE_IMAGES_BEFORE_IDENTITY
 	bmpCount = 0;
 #endif
@@ -22,7 +29,86 @@ void BllDataIdentity::init()
 {
  
 }
+/**
+* @brief 从多次识别出的倒计时、场次号中选出正确的
+*/
+LONG BllDataIdentity::chooseRightRaceTimeRaceSession(DataOutput &outputStruct)
+{
+	//判定场次号 以及倒计时 
+	if (dataNewCount <= 30)
+	{
+		if (dataNewCount == 0)
+		{
+			for (int i = 0; i < 20; i++)
+			{
+				myRaceNumberStruct[i].content = 0;
+				myRaceNumberStruct[i].contentCount = 0;
+			}
 
+			for (int i = 0; i < 30; i++)
+			{
+				myRaceTimeStruct[i].content = 0;
+				myRaceTimeStruct[i].contentCount = 0;
+			}
+		}
+		else
+		{
+			myRaceNumberStruct[outputStruct.session].content = outputStruct.session;
+			myRaceNumberStruct[outputStruct.session].contentCount++;
+
+			myRaceTimeStruct[outputStruct.raceTime].content = outputStruct.raceTime;
+			myRaceTimeStruct[outputStruct.raceTime].contentCount++;
+
+		}
+		dataNewCount++;
+	}
+	else
+	{
+		//最大内容出现计数次数
+		int maxContentCount;
+		int maxContent;
+		maxContentCount = myRaceNumberStruct[0].contentCount;
+		maxContent = myRaceNumberStruct[0].content;
+		//判决输出
+		for (int i = 0; i < 20; i++)
+		{
+
+			if (maxContentCount < myRaceNumberStruct[i].contentCount)
+			{
+				maxContentCount = myRaceNumberStruct[i].contentCount;
+				maxContent = myRaceNumberStruct[i].content;
+			}
+
+
+		}
+
+		Global::session = maxContent;
+
+
+		//挑出来 应该输出的  倒计时时间 
+		maxContentCount = myRaceTimeStruct[0].contentCount;
+		maxContent = myRaceTimeStruct[0].content;
+		for (int i = 0; i < 30; i++)
+		{
+
+			if (maxContentCount < myRaceTimeStruct[i].contentCount)
+			{
+				maxContentCount = myRaceTimeStruct[i].contentCount;
+				maxContent = myRaceTimeStruct[i].content;
+			}
+
+
+		}
+		Global::raceTime = maxContent;
+
+		dataNewCount == 0;
+
+	}
+
+	 
+	return 1;
+
+}
 
 /**
 * @brief 判断数据是否为新数据
@@ -46,8 +132,13 @@ LONG BllDataIdentity::handleDataOutput(DataOutput &outputStruct)
 		for (int j = outputStruct.horseNum+1; j < 15; j++)
 			outputStruct.QPL_QIN[i][j] = 0;
 	}
-	return 1;
+
+	
+	chooseRightRaceTimeRaceSession(outputStruct);
+
+	return 1 ;
 }
+
 /**
 * @brief 判断数据是否为新数据
 */
@@ -205,8 +296,8 @@ void BllDataIdentity::start()
 					DataOutput outputStruct = dataIdentity.dataOutput;
 					//数据处理，屏蔽无效数据为-1
 
-					Global::session = outputStruct.session;//更新全局场次号
-					Global::raceTime = outputStruct.raceTime;//更新全局比赛时间
+					//Global::session = outputStruct.session;//更新全局场次号
+					//Global::raceTime = outputStruct.raceTime;//更新全局比赛时间
 					
 					isDataOutputNew( outputStruct);
 
