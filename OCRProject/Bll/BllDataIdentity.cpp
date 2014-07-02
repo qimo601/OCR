@@ -99,9 +99,9 @@ LONG BllDataIdentity::chooseRightRaceTimeRaceSession(DataOutput &outputStruct)
 
 
 		}
+		dataNewCount = 0;
 		Global::raceTime = maxContent;
-
-		dataNewCount == 0;
+		
 
 	}
 
