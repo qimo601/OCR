@@ -48,7 +48,7 @@ public:
     QLabel *label_6;
     QVBoxLayout *verticalLayout;
     QFrame *frame_3;
-    QWidget *widget;
+    QHBoxLayout *horizontalLayout_12;
     QHBoxLayout *horizontalLayout_11;
     QHBoxLayout *horizontalLayout_8;
     QLabel *label;
@@ -262,34 +262,33 @@ public:
         frame_3->setObjectName(QStringLiteral("frame_3"));
         frame_3->setFrameShape(QFrame::StyledPanel);
         frame_3->setFrameShadow(QFrame::Raised);
-        widget = new QWidget(frame_3);
-        widget->setObjectName(QStringLiteral("widget"));
-        widget->setGeometry(QRect(10, 10, 1020, 31));
-        horizontalLayout_11 = new QHBoxLayout(widget);
+        horizontalLayout_12 = new QHBoxLayout(frame_3);
+        horizontalLayout_12->setSpacing(6);
+        horizontalLayout_12->setContentsMargins(11, 11, 11, 11);
+        horizontalLayout_12->setObjectName(QStringLiteral("horizontalLayout_12"));
+        horizontalLayout_11 = new QHBoxLayout();
         horizontalLayout_11->setSpacing(6);
-        horizontalLayout_11->setContentsMargins(11, 11, 11, 11);
         horizontalLayout_11->setObjectName(QStringLiteral("horizontalLayout_11"));
-        horizontalLayout_11->setContentsMargins(0, 0, 0, 0);
         horizontalLayout_8 = new QHBoxLayout();
         horizontalLayout_8->setSpacing(6);
         horizontalLayout_8->setObjectName(QStringLiteral("horizontalLayout_8"));
-        label = new QLabel(widget);
+        label = new QLabel(frame_3);
         label->setObjectName(QStringLiteral("label"));
 
         horizontalLayout_8->addWidget(label);
 
-        sessionTextEdit = new QTextEdit(widget);
+        sessionTextEdit = new QTextEdit(frame_3);
         sessionTextEdit->setObjectName(QStringLiteral("sessionTextEdit"));
         sessionTextEdit->setStyleSheet(QStringLiteral("background-color: rgb(169, 181, 255);"));
 
         horizontalLayout_8->addWidget(sessionTextEdit);
 
-        label_2 = new QLabel(widget);
+        label_2 = new QLabel(frame_3);
         label_2->setObjectName(QStringLiteral("label_2"));
 
         horizontalLayout_8->addWidget(label_2);
 
-        raceTimeTextEdit = new QTextEdit(widget);
+        raceTimeTextEdit = new QTextEdit(frame_3);
         raceTimeTextEdit->setObjectName(QStringLiteral("raceTimeTextEdit"));
         raceTimeTextEdit->setStyleSheet(QStringLiteral("background-color: rgb(169, 181, 255);"));
 
@@ -304,9 +303,9 @@ public:
 
         horizontalLayout_11->setStretch(0, 2);
         horizontalLayout_11->setStretch(1, 3);
-        sessionTextEdit->raise();
-        label->raise();
-        label_2->raise();
+
+        horizontalLayout_12->addLayout(horizontalLayout_11);
+
 
         verticalLayout->addWidget(frame_3);
 

@@ -637,7 +637,7 @@ void OcrControl::updateADData(DataOutput output, QByteArray array)
 
 		myImage.save("acq2.bmp");
 
-		myImage = myImage.scaled(IMAGE_WIDTH *0.7, IMAGE_HEIGHT *0.7);
+		myImage = myImage.scaled(IMAGE_WIDTH *0.6, IMAGE_HEIGHT *0.6);
 		pixmap = pixmap.fromImage(myImage);
 		ui.imageLbl->setPixmap(pixmap);
 		delete[] buffer;
@@ -683,7 +683,7 @@ void OcrControl::updateData(DataOutput output, QByteArray array)
 
 		myImage.save("acq2.bmp");
 
-		myImage = myImage.scaled(IMAGE_WIDTH *0.8 , IMAGE_HEIGHT *0.8 );
+		myImage = myImage.scaled(IMAGE_WIDTH *0.6 , IMAGE_HEIGHT *0.6);
 		pixmap = pixmap.fromImage(myImage);
 		ui.imageLbl->setPixmap(pixmap);
 		delete[] buffer;
