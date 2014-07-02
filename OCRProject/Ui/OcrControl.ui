@@ -6,7 +6,7 @@
    <rect>
     <x>0</x>
     <y>0</y>
-    <width>1191</width>
+    <width>1051</width>
     <height>877</height>
    </rect>
   </property>
@@ -135,7 +135,7 @@
            <property name="frameShadow">
             <enum>QFrame::Raised</enum>
            </property>
-           <layout class="QHBoxLayout" name="horizontalLayout_8">
+           <layout class="QHBoxLayout" name="horizontalLayout_8" stretch="1,6,1,6">
             <item>
              <widget class="QLabel" name="label">
               <property name="font">
@@ -151,17 +151,9 @@
              </widget>
             </item>
             <item>
-             <widget class="QLabel" name="sessionLbl">
-              <property name="font">
-               <font>
-                <pointsize>15</pointsize>
-               </font>
-              </property>
+             <widget class="QTextEdit" name="sessionTextEdit">
               <property name="styleSheet">
                <string notr="true">background-color: rgb(169, 181, 255);</string>
-              </property>
-              <property name="text">
-               <string/>
               </property>
              </widget>
             </item>
@@ -180,17 +172,9 @@
              </widget>
             </item>
             <item>
-             <widget class="QLabel" name="raceTimeLbl">
-              <property name="font">
-               <font>
-                <pointsize>15</pointsize>
-               </font>
-              </property>
+             <widget class="QTextEdit" name="raceTimeTextEdit">
               <property name="styleSheet">
-               <string notr="true">background-color: rgb(255, 133, 135);</string>
-              </property>
-              <property name="text">
-               <string/>
+               <string notr="true">background-color: rgb(169, 181, 255);</string>
               </property>
              </widget>
             </item>

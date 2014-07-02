@@ -697,8 +697,15 @@ void OcrControl::updateData(DataOutput output, QByteArray array)
 		ui.adTimeLbl->setText("raceTime");
 		ui.adTimeLbl->setStyleSheet(QStringLiteral("background-color: Green;"));
 		ui.adTimeLbl->setPalette(pe);
-		ui.sessionLbl->setText(QString::number(Global::session));//更新全局场次号
-		ui.raceTimeLbl->setText(QString::number(Global::raceTime));//更新全局比赛时间
+		ui.sessionTextEdit->setText(QString::number(Global::session));//更新全局场次号
+		ui.raceTimeTextEdit->setText(QString::number(Global::raceTime));//更新全局比赛时间
+
+		ui.sessionTextEdit->setFontPointSize(20);
+		ui.raceTimeTextEdit->setFontPointSize(20);
+
+		ui.sessionTextEdit->setTextColor(QColor("white"));
+		ui.raceTimeTextEdit->setTextColor(QColor("white"));
+
 		updateUiData(output, array);//更新马信息
 		if (output.isQPL)
 		{

@@ -20,6 +20,7 @@
 #include <QtWidgets/QPushButton>
 #include <QtWidgets/QStackedWidget>
 #include <QtWidgets/QTextBrowser>
+#include <QtWidgets/QTextEdit>
 #include <QtWidgets/QVBoxLayout>
 #include <QtWidgets/QWidget>
 
@@ -44,9 +45,9 @@ public:
     QFrame *frame_3;
     QHBoxLayout *horizontalLayout_8;
     QLabel *label;
-    QLabel *sessionLbl;
+    QTextEdit *sessionTextEdit;
     QLabel *label_2;
-    QLabel *raceTimeLbl;
+    QTextEdit *raceTimeTextEdit;
     QLabel *imageLbl;
     QFrame *frame_2;
     QStackedWidget *stackedWidget;
@@ -140,7 +141,7 @@ public:
     {
         if (OcrControl->objectName().isEmpty())
             OcrControl->setObjectName(QStringLiteral("OcrControl"));
-        OcrControl->resize(1191, 877);
+        OcrControl->resize(1051, 877);
         verticalLayout_3 = new QVBoxLayout(OcrControl);
         verticalLayout_3->setSpacing(6);
         verticalLayout_3->setContentsMargins(11, 11, 11, 11);
@@ -233,14 +234,11 @@ public:
 
         horizontalLayout_8->addWidget(label);
 
-        sessionLbl = new QLabel(frame_3);
-        sessionLbl->setObjectName(QStringLiteral("sessionLbl"));
-        QFont font2;
-        font2.setPointSize(15);
-        sessionLbl->setFont(font2);
-        sessionLbl->setStyleSheet(QStringLiteral("background-color: rgb(169, 181, 255);"));
+        sessionTextEdit = new QTextEdit(frame_3);
+        sessionTextEdit->setObjectName(QStringLiteral("sessionTextEdit"));
+        sessionTextEdit->setStyleSheet(QStringLiteral("background-color: rgb(169, 181, 255);"));
 
-        horizontalLayout_8->addWidget(sessionLbl);
+        horizontalLayout_8->addWidget(sessionTextEdit);
 
         label_2 = new QLabel(frame_3);
         label_2->setObjectName(QStringLiteral("label_2"));
@@ -248,13 +246,16 @@ public:
 
         horizontalLayout_8->addWidget(label_2);
 
-        raceTimeLbl = new QLabel(frame_3);
-        raceTimeLbl->setObjectName(QStringLiteral("raceTimeLbl"));
-        raceTimeLbl->setFont(font2);
-        raceTimeLbl->setStyleSheet(QStringLiteral("background-color: rgb(255, 133, 135);"));
+        raceTimeTextEdit = new QTextEdit(frame_3);
+        raceTimeTextEdit->setObjectName(QStringLiteral("raceTimeTextEdit"));
+        raceTimeTextEdit->setStyleSheet(QStringLiteral("background-color: rgb(169, 181, 255);"));
 
-        horizontalLayout_8->addWidget(raceTimeLbl);
+        horizontalLayout_8->addWidget(raceTimeTextEdit);
 
+        horizontalLayout_8->setStretch(0, 1);
+        horizontalLayout_8->setStretch(1, 6);
+        horizontalLayout_8->setStretch(2, 1);
+        horizontalLayout_8->setStretch(3, 6);
 
         verticalLayout->addWidget(frame_3);
 
@@ -827,9 +828,7 @@ public:
         label_3->setText(QApplication::translate("OcrControl", "WIN", 0));
         label_6->setText(QApplication::translate("OcrControl", "PLA", 0));
         label->setText(QApplication::translate("OcrControl", "\345\234\272\346\254\241\357\274\232", 0));
-        sessionLbl->setText(QString());
         label_2->setText(QApplication::translate("OcrControl", "\345\200\222\350\256\241\346\227\266\357\274\232", 0));
-        raceTimeLbl->setText(QString());
         imageLbl->setText(QApplication::translate("OcrControl", "TextLabel", 0));
         label_14->setText(QApplication::translate("OcrControl", "9", 0));
         label_15->setText(QApplication::translate("OcrControl", "10", 0));
