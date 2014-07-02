@@ -59,7 +59,7 @@
       </widget>
      </item>
      <item>
-      <layout class="QHBoxLayout" name="horizontalLayout" stretch="1,5">
+      <layout class="QHBoxLayout" name="horizontalLayout" stretch="1,0">
        <item>
         <widget class="QFrame" name="horseFrame">
          <property name="frameShape">
@@ -136,7 +136,7 @@
         </widget>
        </item>
        <item>
-        <layout class="QVBoxLayout" name="verticalLayout" stretch="1,7">
+        <layout class="QVBoxLayout" name="verticalLayout" stretch="1,8">
          <property name="spacing">
           <number>0</number>
          </property>
