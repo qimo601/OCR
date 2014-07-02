@@ -13,7 +13,7 @@
   <property name="windowTitle">
    <string>OcrControl</string>
   </property>
-  <layout class="QHBoxLayout" name="horizontalLayout_12">
+  <layout class="QVBoxLayout" name="verticalLayout_18">
    <item>
     <layout class="QVBoxLayout" name="verticalLayout_2" stretch="1,7,4,2">
      <item>
@@ -59,7 +59,7 @@
       </widget>
      </item>
      <item>
-      <layout class="QHBoxLayout" name="horizontalLayout" stretch="1,0">
+      <layout class="QHBoxLayout" name="horizontalLayout" stretch="1,5">
        <item>
         <widget class="QFrame" name="horseFrame">
          <property name="frameShape">
@@ -136,7 +136,7 @@
         </widget>
        </item>
        <item>
-        <layout class="QVBoxLayout" name="verticalLayout" stretch="1,8">
+        <layout class="QVBoxLayout" name="verticalLayout" stretch="1,7">
          <property name="spacing">
           <number>0</number>
          </property>
@@ -148,54 +148,69 @@
            <property name="frameShadow">
             <enum>QFrame::Raised</enum>
            </property>
-           <layout class="QHBoxLayout" name="horizontalLayout_11">
-            <item>
-             <layout class="QHBoxLayout" name="horizontalLayout_8">
-              <item>
-               <widget class="QLabel" name="label">
-                <property name="font">
-                 <font>
-                  <pointsize>15</pointsize>
-                  <weight>75</weight>
-                  <bold>true</bold>
-                 </font>
-                </property>
-                <property name="text">
-                 <string>场次：</string>
-                </property>
-               </widget>
-              </item>
-              <item>
-               <widget class="QTextEdit" name="sessionTextEdit">
-                <property name="styleSheet">
-                 <string notr="true">background-color: rgb(169, 181, 255);</string>
-                </property>
-               </widget>
-              </item>
-              <item>
-               <widget class="QLabel" name="label_2">
-                <property name="font">
-                 <font>
-                  <pointsize>15</pointsize>
-                  <weight>75</weight>
-                  <bold>true</bold>
-                 </font>
-                </property>
-                <property name="text">
-                 <string>倒计时：</string>
-                </property>
-               </widget>
-              </item>
-              <item>
-               <widget class="QTextEdit" name="raceTimeTextEdit">
-                <property name="styleSheet">
-                 <string notr="true">background-color: rgb(169, 181, 255);</string>
-                </property>
-               </widget>
-              </item>
-             </layout>
-            </item>
-           </layout>
+           <widget class="QWidget" name="">
+            <property name="geometry">
+             <rect>
+              <x>10</x>
+              <y>10</y>
+              <width>1020</width>
+              <height>31</height>
+             </rect>
+            </property>
+            <layout class="QHBoxLayout" name="horizontalLayout_11" stretch="2,3">
+             <item>
+              <layout class="QHBoxLayout" name="horizontalLayout_8">
+               <item>
+                <widget class="QLabel" name="label">
+                 <property name="text">
+                  <string>场次：</string>
+                 </property>
+                </widget>
+               </item>
+               <item>
+                <widget class="QTextEdit" name="sessionTextEdit">
+                 <property name="styleSheet">
+                  <string notr="true">background-color: rgb(169, 181, 255);</string>
+                 </property>
+                </widget>
+               </item>
+               <item>
+                <widget class="QLabel" name="label_2">
+                 <property name="text">
+                  <string>倒计时</string>
+                 </property>
+                </widget>
+               </item>
+               <item>
+                <widget class="QTextEdit" name="raceTimeTextEdit">
+                 <property name="styleSheet">
+                  <string notr="true">background-color: rgb(169, 181, 255);</string>
+                 </property>
+                </widget>
+               </item>
+              </layout>
+             </item>
+             <item>
+              <spacer name="horizontalSpacer_2">
+               <property name="orientation">
+                <enum>Qt::Horizontal</enum>
+               </property>
+               <property name="sizeHint" stdset="0">
+                <size>
+                 <width>408</width>
+                 <height>20</height>
+                </size>
+               </property>
+              </spacer>
+             </item>
+            </layout>
+           </widget>
+           <zorder></zorder>
+           <zorder>sessionTextEdit</zorder>
+           <zorder>frame</zorder>
+           <zorder>label</zorder>
+           <zorder>label_2</zorder>
+           <zorder>horizontalSpacer_2</zorder>
           </widget>
          </item>
          <item>
@@ -850,8 +865,8 @@
            <rect>
             <x>800</x>
             <y>40</y>
-            <width>98</width>
-            <height>61</height>
+            <width>181</width>
+            <height>91</height>
            </rect>
           </property>
           <layout class="QHBoxLayout" name="horizontalLayout_10">

@@ -31,7 +31,7 @@ QT_BEGIN_NAMESPACE
 class Ui_OcrControl
 {
 public:
-    QHBoxLayout *horizontalLayout_12;
+    QVBoxLayout *verticalLayout_18;
     QVBoxLayout *verticalLayout_2;
     QFrame *frame_5;
     QVBoxLayout *verticalLayout_3;
@@ -48,12 +48,14 @@ public:
     QLabel *label_6;
     QVBoxLayout *verticalLayout;
     QFrame *frame_3;
+    QWidget *widget;
     QHBoxLayout *horizontalLayout_11;
     QHBoxLayout *horizontalLayout_8;
     QLabel *label;
     QTextEdit *sessionTextEdit;
     QLabel *label_2;
     QTextEdit *raceTimeTextEdit;
+    QSpacerItem *horizontalSpacer_2;
     QFrame *frame;
     QVBoxLayout *verticalLayout_8;
     QHBoxLayout *horizontalLayout_2;
@@ -164,10 +166,10 @@ public:
         if (OcrControl->objectName().isEmpty())
             OcrControl->setObjectName(QStringLiteral("OcrControl"));
         OcrControl->resize(1051, 877);
-        horizontalLayout_12 = new QHBoxLayout(OcrControl);
-        horizontalLayout_12->setSpacing(6);
-        horizontalLayout_12->setContentsMargins(11, 11, 11, 11);
-        horizontalLayout_12->setObjectName(QStringLiteral("horizontalLayout_12"));
+        verticalLayout_18 = new QVBoxLayout(OcrControl);
+        verticalLayout_18->setSpacing(6);
+        verticalLayout_18->setContentsMargins(11, 11, 11, 11);
+        verticalLayout_18->setObjectName(QStringLiteral("verticalLayout_18"));
         verticalLayout_2 = new QVBoxLayout();
         verticalLayout_2->setSpacing(6);
         verticalLayout_2->setObjectName(QStringLiteral("verticalLayout_2"));
@@ -260,36 +262,34 @@ public:
         frame_3->setObjectName(QStringLiteral("frame_3"));
         frame_3->setFrameShape(QFrame::StyledPanel);
         frame_3->setFrameShadow(QFrame::Raised);
-        horizontalLayout_11 = new QHBoxLayout(frame_3);
+        widget = new QWidget(frame_3);
+        widget->setObjectName(QStringLiteral("widget"));
+        widget->setGeometry(QRect(10, 10, 1020, 31));
+        horizontalLayout_11 = new QHBoxLayout(widget);
         horizontalLayout_11->setSpacing(6);
         horizontalLayout_11->setContentsMargins(11, 11, 11, 11);
         horizontalLayout_11->setObjectName(QStringLiteral("horizontalLayout_11"));
+        horizontalLayout_11->setContentsMargins(0, 0, 0, 0);
         horizontalLayout_8 = new QHBoxLayout();
         horizontalLayout_8->setSpacing(6);
         horizontalLayout_8->setObjectName(QStringLiteral("horizontalLayout_8"));
-        label = new QLabel(frame_3);
+        label = new QLabel(widget);
         label->setObjectName(QStringLiteral("label"));
-        QFont font1;
-        font1.setPointSize(15);
-        font1.setBold(true);
-        font1.setWeight(75);
-        label->setFont(font1);
 
         horizontalLayout_8->addWidget(label);
 
-        sessionTextEdit = new QTextEdit(frame_3);
+        sessionTextEdit = new QTextEdit(widget);
         sessionTextEdit->setObjectName(QStringLiteral("sessionTextEdit"));
         sessionTextEdit->setStyleSheet(QStringLiteral("background-color: rgb(169, 181, 255);"));
 
         horizontalLayout_8->addWidget(sessionTextEdit);
 
-        label_2 = new QLabel(frame_3);
+        label_2 = new QLabel(widget);
         label_2->setObjectName(QStringLiteral("label_2"));
-        label_2->setFont(font1);
 
         horizontalLayout_8->addWidget(label_2);
 
-        raceTimeTextEdit = new QTextEdit(frame_3);
+        raceTimeTextEdit = new QTextEdit(widget);
         raceTimeTextEdit->setObjectName(QStringLiteral("raceTimeTextEdit"));
         raceTimeTextEdit->setStyleSheet(QStringLiteral("background-color: rgb(169, 181, 255);"));
 
@@ -298,6 +298,15 @@ public:
 
         horizontalLayout_11->addLayout(horizontalLayout_8);
 
+        horizontalSpacer_2 = new QSpacerItem(408, 20, QSizePolicy::Expanding, QSizePolicy::Minimum);
+
+        horizontalLayout_11->addItem(horizontalSpacer_2);
+
+        horizontalLayout_11->setStretch(0, 2);
+        horizontalLayout_11->setStretch(1, 3);
+        sessionTextEdit->raise();
+        label->raise();
+        label_2->raise();
 
         verticalLayout->addWidget(frame_3);
 
@@ -583,7 +592,7 @@ public:
 
         layoutWidget2 = new QWidget(page);
         layoutWidget2->setObjectName(QStringLiteral("layoutWidget2"));
-        layoutWidget2->setGeometry(QRect(800, 40, 98, 61));
+        layoutWidget2->setGeometry(QRect(800, 40, 181, 91));
         horizontalLayout_10 = new QHBoxLayout(layoutWidget2);
         horizontalLayout_10->setSpacing(6);
         horizontalLayout_10->setContentsMargins(11, 11, 11, 11);
@@ -965,7 +974,7 @@ public:
         verticalLayout_2->setStretch(2, 4);
         verticalLayout_2->setStretch(3, 2);
 
-        horizontalLayout_12->addLayout(verticalLayout_2);
+        verticalLayout_18->addLayout(verticalLayout_2);
 
 
         retranslateUi(OcrControl);
@@ -985,7 +994,7 @@ public:
         label_3->setText(QApplication::translate("OcrControl", "WIN", 0));
         label_6->setText(QApplication::translate("OcrControl", "PLA", 0));
         label->setText(QApplication::translate("OcrControl", "\345\234\272\346\254\241\357\274\232", 0));
-        label_2->setText(QApplication::translate("OcrControl", "\345\200\222\350\256\241\346\227\266\357\274\232", 0));
+        label_2->setText(QApplication::translate("OcrControl", "\345\200\222\350\256\241\346\227\266", 0));
         imageLbl->setText(QApplication::translate("OcrControl", "TextLabel", 0));
         groupBox->setTitle(QApplication::translate("OcrControl", "GroupBox", 0));
         label_14->setText(QApplication::translate("OcrControl", "9", 0));
