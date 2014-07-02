@@ -646,7 +646,7 @@ void OcrControl::updateADData(DataOutput output, QByteArray array)
 		ui.adTimeLbl->setText("ADTime");
 		ui.adTimeLbl->setPalette(pe);
 		ui.adTimeLbl->setStyleSheet(QStringLiteral("background-color: rgb(255, 130, 80);"));
-		}
+		
 
 }
 /**
