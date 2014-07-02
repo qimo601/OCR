@@ -31,7 +31,7 @@ QT_BEGIN_NAMESPACE
 class Ui_OcrControl
 {
 public:
-    QVBoxLayout *verticalLayout_18;
+    QHBoxLayout *horizontalLayout_12;
     QVBoxLayout *verticalLayout_2;
     QFrame *frame_5;
     QVBoxLayout *verticalLayout_3;
@@ -47,19 +47,22 @@ public:
     QLabel *label_3;
     QLabel *label_6;
     QVBoxLayout *verticalLayout;
-    QFrame *frame_3;
-    QHBoxLayout *horizontalLayout_12;
-    QHBoxLayout *horizontalLayout_11;
+    QFrame *frame;
+    QVBoxLayout *verticalLayout_20;
     QHBoxLayout *horizontalLayout_8;
+    QVBoxLayout *verticalLayout_8;
+    QGroupBox *groupBox_2;
+    QWidget *layoutWidget;
+    QHBoxLayout *horizontalLayout_2;
     QLabel *label;
     QTextEdit *sessionTextEdit;
     QLabel *label_2;
     QTextEdit *raceTimeTextEdit;
-    QSpacerItem *horizontalSpacer_2;
-    QFrame *frame;
-    QVBoxLayout *verticalLayout_8;
-    QHBoxLayout *horizontalLayout_2;
+    QGroupBox *groupBox_3;
+    QHBoxLayout *horizontalLayout_11;
     QLabel *imageLbl;
+    QVBoxLayout *verticalLayout_19;
+    QSpacerItem *horizontalSpacer_2;
     QGroupBox *groupBox;
     QFrame *frame_2;
     QStackedWidget *stackedWidget;
@@ -75,7 +78,7 @@ public:
     QLabel *label_18;
     QLabel *label_19;
     QLabel *QINLabel;
-    QWidget *layoutWidget;
+    QWidget *layoutWidget1;
     QVBoxLayout *verticalLayout_6;
     QLabel *label_7;
     QLabel *label_8;
@@ -84,7 +87,7 @@ public:
     QLabel *label_11;
     QLabel *label_12;
     QLabel *label_13;
-    QWidget *layoutWidget1;
+    QWidget *layoutWidget2;
     QHBoxLayout *horizontalLayout_7;
     QLabel *label_21;
     QLabel *label_22;
@@ -99,12 +102,12 @@ public:
     QLabel *label_31;
     QLabel *label_32;
     QLabel *label_59;
-    QWidget *layoutWidget2;
+    QWidget *layoutWidget3;
     QHBoxLayout *horizontalLayout_10;
     QLabel *adTimeLbl;
     QLabel *imageFileNameLabel;
     QWidget *page_2;
-    QWidget *layoutWidget3;
+    QWidget *layoutWidget4;
     QVBoxLayout *verticalLayout_11;
     QLabel *label_61;
     QLabel *label_62;
@@ -166,10 +169,10 @@ public:
         if (OcrControl->objectName().isEmpty())
             OcrControl->setObjectName(QStringLiteral("OcrControl"));
         OcrControl->resize(1051, 877);
-        verticalLayout_18 = new QVBoxLayout(OcrControl);
-        verticalLayout_18->setSpacing(6);
-        verticalLayout_18->setContentsMargins(11, 11, 11, 11);
-        verticalLayout_18->setObjectName(QStringLiteral("verticalLayout_18"));
+        horizontalLayout_12 = new QHBoxLayout(OcrControl);
+        horizontalLayout_12->setSpacing(6);
+        horizontalLayout_12->setContentsMargins(11, 11, 11, 11);
+        horizontalLayout_12->setObjectName(QStringLiteral("horizontalLayout_12"));
         verticalLayout_2 = new QVBoxLayout();
         verticalLayout_2->setSpacing(6);
         verticalLayout_2->setObjectName(QStringLiteral("verticalLayout_2"));
@@ -258,88 +261,99 @@ public:
         verticalLayout = new QVBoxLayout();
         verticalLayout->setSpacing(0);
         verticalLayout->setObjectName(QStringLiteral("verticalLayout"));
-        frame_3 = new QFrame(OcrControl);
-        frame_3->setObjectName(QStringLiteral("frame_3"));
-        frame_3->setFrameShape(QFrame::StyledPanel);
-        frame_3->setFrameShadow(QFrame::Raised);
-        horizontalLayout_12 = new QHBoxLayout(frame_3);
-        horizontalLayout_12->setSpacing(6);
-        horizontalLayout_12->setContentsMargins(11, 11, 11, 11);
-        horizontalLayout_12->setObjectName(QStringLiteral("horizontalLayout_12"));
-        horizontalLayout_11 = new QHBoxLayout();
-        horizontalLayout_11->setSpacing(6);
-        horizontalLayout_11->setObjectName(QStringLiteral("horizontalLayout_11"));
-        horizontalLayout_8 = new QHBoxLayout();
-        horizontalLayout_8->setSpacing(6);
-        horizontalLayout_8->setObjectName(QStringLiteral("horizontalLayout_8"));
-        label = new QLabel(frame_3);
-        label->setObjectName(QStringLiteral("label"));
-
-        horizontalLayout_8->addWidget(label);
-
-        sessionTextEdit = new QTextEdit(frame_3);
-        sessionTextEdit->setObjectName(QStringLiteral("sessionTextEdit"));
-        sessionTextEdit->setStyleSheet(QStringLiteral("background-color: rgb(169, 181, 255);"));
-
-        horizontalLayout_8->addWidget(sessionTextEdit);
-
-        label_2 = new QLabel(frame_3);
-        label_2->setObjectName(QStringLiteral("label_2"));
-
-        horizontalLayout_8->addWidget(label_2);
-
-        raceTimeTextEdit = new QTextEdit(frame_3);
-        raceTimeTextEdit->setObjectName(QStringLiteral("raceTimeTextEdit"));
-        raceTimeTextEdit->setStyleSheet(QStringLiteral("background-color: rgb(169, 181, 255);"));
-
-        horizontalLayout_8->addWidget(raceTimeTextEdit);
-
-
-        horizontalLayout_11->addLayout(horizontalLayout_8);
-
-        horizontalSpacer_2 = new QSpacerItem(408, 20, QSizePolicy::Expanding, QSizePolicy::Minimum);
-
-        horizontalLayout_11->addItem(horizontalSpacer_2);
-
-        horizontalLayout_11->setStretch(0, 2);
-        horizontalLayout_11->setStretch(1, 3);
-
-        horizontalLayout_12->addLayout(horizontalLayout_11);
-
-
-        verticalLayout->addWidget(frame_3);
-
         frame = new QFrame(OcrControl);
         frame->setObjectName(QStringLiteral("frame"));
         frame->setFrameShape(QFrame::StyledPanel);
         frame->setFrameShadow(QFrame::Raised);
-        verticalLayout_8 = new QVBoxLayout(frame);
+        verticalLayout_20 = new QVBoxLayout(frame);
+        verticalLayout_20->setSpacing(6);
+        verticalLayout_20->setContentsMargins(11, 11, 11, 11);
+        verticalLayout_20->setObjectName(QStringLiteral("verticalLayout_20"));
+        horizontalLayout_8 = new QHBoxLayout();
+        horizontalLayout_8->setSpacing(6);
+        horizontalLayout_8->setObjectName(QStringLiteral("horizontalLayout_8"));
+        verticalLayout_8 = new QVBoxLayout();
         verticalLayout_8->setSpacing(6);
-        verticalLayout_8->setContentsMargins(11, 11, 11, 11);
         verticalLayout_8->setObjectName(QStringLiteral("verticalLayout_8"));
-        horizontalLayout_2 = new QHBoxLayout();
+        groupBox_2 = new QGroupBox(frame);
+        groupBox_2->setObjectName(QStringLiteral("groupBox_2"));
+        layoutWidget = new QWidget(groupBox_2);
+        layoutWidget->setObjectName(QStringLiteral("layoutWidget"));
+        layoutWidget->setGeometry(QRect(10, 10, 381, 31));
+        horizontalLayout_2 = new QHBoxLayout(layoutWidget);
         horizontalLayout_2->setSpacing(6);
+        horizontalLayout_2->setContentsMargins(11, 11, 11, 11);
         horizontalLayout_2->setObjectName(QStringLiteral("horizontalLayout_2"));
-        imageLbl = new QLabel(frame);
+        horizontalLayout_2->setContentsMargins(0, 0, 0, 0);
+        label = new QLabel(layoutWidget);
+        label->setObjectName(QStringLiteral("label"));
+
+        horizontalLayout_2->addWidget(label);
+
+        sessionTextEdit = new QTextEdit(layoutWidget);
+        sessionTextEdit->setObjectName(QStringLiteral("sessionTextEdit"));
+        sessionTextEdit->setStyleSheet(QStringLiteral("background-color: rgb(255, 130, 80);"));
+
+        horizontalLayout_2->addWidget(sessionTextEdit);
+
+        label_2 = new QLabel(layoutWidget);
+        label_2->setObjectName(QStringLiteral("label_2"));
+
+        horizontalLayout_2->addWidget(label_2);
+
+        raceTimeTextEdit = new QTextEdit(layoutWidget);
+        raceTimeTextEdit->setObjectName(QStringLiteral("raceTimeTextEdit"));
+        raceTimeTextEdit->setStyleSheet(QStringLiteral("background-color: rgb(255, 130, 80);"));
+
+        horizontalLayout_2->addWidget(raceTimeTextEdit);
+
+
+        verticalLayout_8->addWidget(groupBox_2);
+
+        groupBox_3 = new QGroupBox(frame);
+        groupBox_3->setObjectName(QStringLiteral("groupBox_3"));
+        horizontalLayout_11 = new QHBoxLayout(groupBox_3);
+        horizontalLayout_11->setSpacing(6);
+        horizontalLayout_11->setContentsMargins(11, 11, 11, 11);
+        horizontalLayout_11->setObjectName(QStringLiteral("horizontalLayout_11"));
+        imageLbl = new QLabel(groupBox_3);
         imageLbl->setObjectName(QStringLiteral("imageLbl"));
 
-        horizontalLayout_2->addWidget(imageLbl);
+        horizontalLayout_11->addWidget(imageLbl);
+
+
+        verticalLayout_8->addWidget(groupBox_3);
+
+        verticalLayout_8->setStretch(0, 1);
+        verticalLayout_8->setStretch(1, 10);
+
+        horizontalLayout_8->addLayout(verticalLayout_8);
+
+        verticalLayout_19 = new QVBoxLayout();
+        verticalLayout_19->setSpacing(6);
+        verticalLayout_19->setObjectName(QStringLiteral("verticalLayout_19"));
+        horizontalSpacer_2 = new QSpacerItem(318, 20, QSizePolicy::Expanding, QSizePolicy::Minimum);
+
+        verticalLayout_19->addItem(horizontalSpacer_2);
 
         groupBox = new QGroupBox(frame);
         groupBox->setObjectName(QStringLiteral("groupBox"));
 
-        horizontalLayout_2->addWidget(groupBox);
+        verticalLayout_19->addWidget(groupBox);
 
-        horizontalLayout_2->setStretch(0, 1);
-        horizontalLayout_2->setStretch(1, 1);
+        verticalLayout_19->setStretch(0, 1);
+        verticalLayout_19->setStretch(1, 10);
 
-        verticalLayout_8->addLayout(horizontalLayout_2);
+        horizontalLayout_8->addLayout(verticalLayout_19);
+
+        horizontalLayout_8->setStretch(0, 1);
+        horizontalLayout_8->setStretch(1, 1);
+
+        verticalLayout_20->addLayout(horizontalLayout_8);
 
 
         verticalLayout->addWidget(frame);
 
-        verticalLayout->setStretch(0, 1);
-        verticalLayout->setStretch(1, 7);
 
         horizontalLayout->addLayout(verticalLayout);
 
@@ -432,179 +446,179 @@ public:
 "  color: rgb(255, 97, 24);\n"
 "  font: 75 20pt \"\346\226\260\345\256\213\344\275\223\";\n"
 "}"));
-        layoutWidget = new QWidget(page);
-        layoutWidget->setObjectName(QStringLiteral("layoutWidget"));
-        layoutWidget->setGeometry(QRect(690, 30, 16, 136));
-        verticalLayout_6 = new QVBoxLayout(layoutWidget);
+        layoutWidget1 = new QWidget(page);
+        layoutWidget1->setObjectName(QStringLiteral("layoutWidget1"));
+        layoutWidget1->setGeometry(QRect(690, 30, 16, 136));
+        verticalLayout_6 = new QVBoxLayout(layoutWidget1);
         verticalLayout_6->setSpacing(6);
         verticalLayout_6->setContentsMargins(11, 11, 11, 11);
         verticalLayout_6->setObjectName(QStringLiteral("verticalLayout_6"));
         verticalLayout_6->setContentsMargins(0, 0, 0, 0);
-        label_7 = new QLabel(layoutWidget);
+        label_7 = new QLabel(layoutWidget1);
         label_7->setObjectName(QStringLiteral("label_7"));
         label_7->setMinimumSize(QSize(0, 14));
         label_7->setMaximumSize(QSize(21, 14));
 
         verticalLayout_6->addWidget(label_7);
 
-        label_8 = new QLabel(layoutWidget);
+        label_8 = new QLabel(layoutWidget1);
         label_8->setObjectName(QStringLiteral("label_8"));
         label_8->setMinimumSize(QSize(0, 14));
         label_8->setMaximumSize(QSize(21, 14));
 
         verticalLayout_6->addWidget(label_8);
 
-        label_9 = new QLabel(layoutWidget);
+        label_9 = new QLabel(layoutWidget1);
         label_9->setObjectName(QStringLiteral("label_9"));
         label_9->setMinimumSize(QSize(0, 14));
         label_9->setMaximumSize(QSize(21, 14));
 
         verticalLayout_6->addWidget(label_9);
 
-        label_10 = new QLabel(layoutWidget);
+        label_10 = new QLabel(layoutWidget1);
         label_10->setObjectName(QStringLiteral("label_10"));
         label_10->setMinimumSize(QSize(0, 14));
         label_10->setMaximumSize(QSize(21, 14));
 
         verticalLayout_6->addWidget(label_10);
 
-        label_11 = new QLabel(layoutWidget);
+        label_11 = new QLabel(layoutWidget1);
         label_11->setObjectName(QStringLiteral("label_11"));
         label_11->setMinimumSize(QSize(0, 14));
         label_11->setMaximumSize(QSize(21, 14));
 
         verticalLayout_6->addWidget(label_11);
 
-        label_12 = new QLabel(layoutWidget);
+        label_12 = new QLabel(layoutWidget1);
         label_12->setObjectName(QStringLiteral("label_12"));
         label_12->setMinimumSize(QSize(0, 14));
         label_12->setMaximumSize(QSize(21, 14));
 
         verticalLayout_6->addWidget(label_12);
 
-        label_13 = new QLabel(layoutWidget);
+        label_13 = new QLabel(layoutWidget1);
         label_13->setObjectName(QStringLiteral("label_13"));
         label_13->setMinimumSize(QSize(0, 14));
         label_13->setMaximumSize(QSize(21, 14));
 
         verticalLayout_6->addWidget(label_13);
 
-        layoutWidget1 = new QWidget(page);
-        layoutWidget1->setObjectName(QStringLiteral("layoutWidget1"));
-        layoutWidget1->setGeometry(QRect(140, 10, 542, 20));
-        layoutWidget1->setMinimumSize(QSize(36, 14));
-        horizontalLayout_7 = new QHBoxLayout(layoutWidget1);
+        layoutWidget2 = new QWidget(page);
+        layoutWidget2->setObjectName(QStringLiteral("layoutWidget2"));
+        layoutWidget2->setGeometry(QRect(140, 10, 542, 20));
+        layoutWidget2->setMinimumSize(QSize(36, 14));
+        horizontalLayout_7 = new QHBoxLayout(layoutWidget2);
         horizontalLayout_7->setSpacing(6);
         horizontalLayout_7->setContentsMargins(11, 11, 11, 11);
         horizontalLayout_7->setObjectName(QStringLiteral("horizontalLayout_7"));
         horizontalLayout_7->setContentsMargins(0, 0, 0, 0);
-        label_21 = new QLabel(layoutWidget1);
+        label_21 = new QLabel(layoutWidget2);
         label_21->setObjectName(QStringLiteral("label_21"));
         label_21->setMinimumSize(QSize(36, 14));
         label_21->setMaximumSize(QSize(36, 14));
 
         horizontalLayout_7->addWidget(label_21);
 
-        label_22 = new QLabel(layoutWidget1);
+        label_22 = new QLabel(layoutWidget2);
         label_22->setObjectName(QStringLiteral("label_22"));
         label_22->setMinimumSize(QSize(36, 14));
         label_22->setMaximumSize(QSize(36, 14));
 
         horizontalLayout_7->addWidget(label_22);
 
-        label_23 = new QLabel(layoutWidget1);
+        label_23 = new QLabel(layoutWidget2);
         label_23->setObjectName(QStringLiteral("label_23"));
         label_23->setMinimumSize(QSize(36, 14));
         label_23->setMaximumSize(QSize(36, 14));
 
         horizontalLayout_7->addWidget(label_23);
 
-        label_24 = new QLabel(layoutWidget1);
+        label_24 = new QLabel(layoutWidget2);
         label_24->setObjectName(QStringLiteral("label_24"));
         label_24->setMinimumSize(QSize(36, 14));
         label_24->setMaximumSize(QSize(36, 14));
 
         horizontalLayout_7->addWidget(label_24);
 
-        label_25 = new QLabel(layoutWidget1);
+        label_25 = new QLabel(layoutWidget2);
         label_25->setObjectName(QStringLiteral("label_25"));
         label_25->setMinimumSize(QSize(36, 14));
         label_25->setMaximumSize(QSize(36, 14));
 
         horizontalLayout_7->addWidget(label_25);
 
-        label_26 = new QLabel(layoutWidget1);
+        label_26 = new QLabel(layoutWidget2);
         label_26->setObjectName(QStringLiteral("label_26"));
         label_26->setMinimumSize(QSize(36, 14));
         label_26->setMaximumSize(QSize(36, 14));
 
         horizontalLayout_7->addWidget(label_26);
 
-        label_27 = new QLabel(layoutWidget1);
+        label_27 = new QLabel(layoutWidget2);
         label_27->setObjectName(QStringLiteral("label_27"));
         label_27->setMinimumSize(QSize(36, 14));
         label_27->setMaximumSize(QSize(36, 14));
 
         horizontalLayout_7->addWidget(label_27);
 
-        label_28 = new QLabel(layoutWidget1);
+        label_28 = new QLabel(layoutWidget2);
         label_28->setObjectName(QStringLiteral("label_28"));
         label_28->setMinimumSize(QSize(36, 14));
         label_28->setMaximumSize(QSize(36, 14));
 
         horizontalLayout_7->addWidget(label_28);
 
-        label_29 = new QLabel(layoutWidget1);
+        label_29 = new QLabel(layoutWidget2);
         label_29->setObjectName(QStringLiteral("label_29"));
         label_29->setMinimumSize(QSize(36, 14));
         label_29->setMaximumSize(QSize(36, 14));
 
         horizontalLayout_7->addWidget(label_29);
 
-        label_30 = new QLabel(layoutWidget1);
+        label_30 = new QLabel(layoutWidget2);
         label_30->setObjectName(QStringLiteral("label_30"));
         label_30->setMinimumSize(QSize(36, 14));
         label_30->setMaximumSize(QSize(36, 14));
 
         horizontalLayout_7->addWidget(label_30);
 
-        label_31 = new QLabel(layoutWidget1);
+        label_31 = new QLabel(layoutWidget2);
         label_31->setObjectName(QStringLiteral("label_31"));
         label_31->setMinimumSize(QSize(36, 14));
         label_31->setMaximumSize(QSize(36, 14));
 
         horizontalLayout_7->addWidget(label_31);
 
-        label_32 = new QLabel(layoutWidget1);
+        label_32 = new QLabel(layoutWidget2);
         label_32->setObjectName(QStringLiteral("label_32"));
         label_32->setMinimumSize(QSize(36, 14));
         label_32->setMaximumSize(QSize(36, 14));
 
         horizontalLayout_7->addWidget(label_32);
 
-        label_59 = new QLabel(layoutWidget1);
+        label_59 = new QLabel(layoutWidget2);
         label_59->setObjectName(QStringLiteral("label_59"));
         label_59->setMinimumSize(QSize(36, 14));
         label_59->setMaximumSize(QSize(36, 14));
 
         horizontalLayout_7->addWidget(label_59);
 
-        layoutWidget2 = new QWidget(page);
-        layoutWidget2->setObjectName(QStringLiteral("layoutWidget2"));
-        layoutWidget2->setGeometry(QRect(800, 40, 181, 91));
-        horizontalLayout_10 = new QHBoxLayout(layoutWidget2);
+        layoutWidget3 = new QWidget(page);
+        layoutWidget3->setObjectName(QStringLiteral("layoutWidget3"));
+        layoutWidget3->setGeometry(QRect(800, 40, 181, 91));
+        horizontalLayout_10 = new QHBoxLayout(layoutWidget3);
         horizontalLayout_10->setSpacing(6);
         horizontalLayout_10->setContentsMargins(11, 11, 11, 11);
         horizontalLayout_10->setObjectName(QStringLiteral("horizontalLayout_10"));
         horizontalLayout_10->setContentsMargins(0, 0, 0, 0);
-        adTimeLbl = new QLabel(layoutWidget2);
+        adTimeLbl = new QLabel(layoutWidget3);
         adTimeLbl->setObjectName(QStringLiteral("adTimeLbl"));
         adTimeLbl->setStyleSheet(QStringLiteral("background-color: rgb(255, 130, 80);"));
         adTimeLbl->setAlignment(Qt::AlignCenter);
 
         horizontalLayout_10->addWidget(adTimeLbl);
 
-        imageFileNameLabel = new QLabel(layoutWidget2);
+        imageFileNameLabel = new QLabel(layoutWidget3);
         imageFileNameLabel->setObjectName(QStringLiteral("imageFileNameLabel"));
         imageFileNameLabel->setStyleSheet(QStringLiteral("background-color: rgb(255, 130, 80);"));
         imageFileNameLabel->setAlignment(Qt::AlignCenter);
@@ -614,57 +628,57 @@ public:
         stackedWidget->addWidget(page);
         page_2 = new QWidget();
         page_2->setObjectName(QStringLiteral("page_2"));
-        layoutWidget3 = new QWidget(page_2);
-        layoutWidget3->setObjectName(QStringLiteral("layoutWidget3"));
-        layoutWidget3->setGeometry(QRect(720, 20, 16, 136));
-        verticalLayout_11 = new QVBoxLayout(layoutWidget3);
+        layoutWidget4 = new QWidget(page_2);
+        layoutWidget4->setObjectName(QStringLiteral("layoutWidget4"));
+        layoutWidget4->setGeometry(QRect(720, 20, 16, 136));
+        verticalLayout_11 = new QVBoxLayout(layoutWidget4);
         verticalLayout_11->setSpacing(6);
         verticalLayout_11->setContentsMargins(11, 11, 11, 11);
         verticalLayout_11->setObjectName(QStringLiteral("verticalLayout_11"));
         verticalLayout_11->setContentsMargins(0, 0, 0, 0);
-        label_61 = new QLabel(layoutWidget3);
+        label_61 = new QLabel(layoutWidget4);
         label_61->setObjectName(QStringLiteral("label_61"));
         label_61->setMinimumSize(QSize(0, 14));
         label_61->setMaximumSize(QSize(21, 14));
 
         verticalLayout_11->addWidget(label_61);
 
-        label_62 = new QLabel(layoutWidget3);
+        label_62 = new QLabel(layoutWidget4);
         label_62->setObjectName(QStringLiteral("label_62"));
         label_62->setMinimumSize(QSize(0, 14));
         label_62->setMaximumSize(QSize(21, 14));
 
         verticalLayout_11->addWidget(label_62);
 
-        label_63 = new QLabel(layoutWidget3);
+        label_63 = new QLabel(layoutWidget4);
         label_63->setObjectName(QStringLiteral("label_63"));
         label_63->setMinimumSize(QSize(0, 14));
         label_63->setMaximumSize(QSize(21, 14));
 
         verticalLayout_11->addWidget(label_63);
 
-        label_64 = new QLabel(layoutWidget3);
+        label_64 = new QLabel(layoutWidget4);
         label_64->setObjectName(QStringLiteral("label_64"));
         label_64->setMinimumSize(QSize(0, 14));
         label_64->setMaximumSize(QSize(21, 14));
 
         verticalLayout_11->addWidget(label_64);
 
-        label_65 = new QLabel(layoutWidget3);
+        label_65 = new QLabel(layoutWidget4);
         label_65->setObjectName(QStringLiteral("label_65"));
         label_65->setMinimumSize(QSize(0, 14));
         label_65->setMaximumSize(QSize(21, 14));
 
         verticalLayout_11->addWidget(label_65);
 
-        label_66 = new QLabel(layoutWidget3);
+        label_66 = new QLabel(layoutWidget4);
         label_66->setObjectName(QStringLiteral("label_66"));
         label_66->setMinimumSize(QSize(0, 14));
         label_66->setMaximumSize(QSize(21, 14));
 
         verticalLayout_11->addWidget(label_66);
 
-        label_67 = new QLabel(layoutWidget3);
+        label_67 = new QLabel(layoutWidget4);
         label_67->setObjectName(QStringLiteral("label_67"));
         label_67->setMinimumSize(QSize(0, 14));
         label_67->setMaximumSize(QSize(21, 14));
@@ -969,11 +983,11 @@ public:
         verticalLayout_2->addWidget(frame_4);
 
         verticalLayout_2->setStretch(0, 1);
-        verticalLayout_2->setStretch(1, 7);
-        verticalLayout_2->setStretch(2, 4);
+        verticalLayout_2->setStretch(1, 15);
+        verticalLayout_2->setStretch(2, 5);
         verticalLayout_2->setStretch(3, 2);
 
-        verticalLayout_18->addLayout(verticalLayout_2);
+        horizontalLayout_12->addLayout(verticalLayout_2);
 
 
         retranslateUi(OcrControl);
@@ -992,10 +1006,17 @@ public:
         label_5->setText(QApplication::translate("OcrControl", "\351\251\254\345\220\215", 0));
         label_3->setText(QApplication::translate("OcrControl", "WIN", 0));
         label_6->setText(QApplication::translate("OcrControl", "PLA", 0));
-        label->setText(QApplication::translate("OcrControl", "\345\234\272\346\254\241\357\274\232", 0));
+        groupBox_2->setTitle(QString());
+        label->setText(QApplication::translate("OcrControl", "\345\234\272\346\254\241\345\217\267\357\274\232", 0));
+        sessionTextEdit->setHtml(QApplication::translate("OcrControl", "<!DOCTYPE HTML PUBLIC \"-//W3C//DTD HTML 4.0//EN\" \"http://www.w3.org/TR/REC-html40/strict.dtd\">\n"
+"<html><head><meta name=\"qrichtext\" content=\"1\" /><style type=\"text/css\">\n"
+"p, li { white-space: pre-wrap; }\n"
+"</style></head><body style=\" font-family:'SimSun'; font-size:9pt; font-weight:400; font-style:normal;\">\n"
+"<p style=\" margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;\">1</p></body></html>", 0));
         label_2->setText(QApplication::translate("OcrControl", "\345\200\222\350\256\241\346\227\266", 0));
+        groupBox_3->setTitle(QString());
         imageLbl->setText(QApplication::translate("OcrControl", "TextLabel", 0));
-        groupBox->setTitle(QApplication::translate("OcrControl", "GroupBox", 0));
+        groupBox->setTitle(QString());
         label_14->setText(QApplication::translate("OcrControl", "9", 0));
         label_15->setText(QApplication::translate("OcrControl", "10", 0));
         label_16->setText(QApplication::translate("OcrControl", "11", 0));
