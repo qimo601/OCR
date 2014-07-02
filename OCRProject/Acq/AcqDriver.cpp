@@ -53,6 +53,7 @@ void AcqDriver::createFalseData()
 		qDebug("pbData is NULL err! \n");
 		count = 0 ;
 		return ;
+
 	}
 	Global::S_CCycleBuffer->write((char *)pbData, IMAGE_BUFF_LENGTH);
 
