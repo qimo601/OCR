@@ -642,7 +642,8 @@ void OcrControl::updateADData(DataOutput output, QByteArray array)
 		ui.imageLbl->setPixmap(pixmap);
 		delete[] buffer;
 	 
-	
+		QPalette pe;
+		pe.setColor(QPalette::WindowText, Qt::white);
 		ui.adTimeLbl->setText("ADTime");
 		ui.adTimeLbl->setPalette(pe);
 		ui.adTimeLbl->setStyleSheet(QStringLiteral("background-color: rgb(255, 130, 80);"));
